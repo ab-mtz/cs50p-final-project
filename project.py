@@ -1,7 +1,7 @@
 import tabula
 
 
-path = "C:\Users\abmtz\Downloads\arbetizeit.pdf"
+path = "sample.pdf"
 
 table = tabula.read_pdf(path, pages=1)
 
