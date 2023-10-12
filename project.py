@@ -11,7 +11,7 @@ from ics import Calendar, Event, BaseAlarm
 ### create a New calendar and add events
 c = Calendar()
 e = Event()
-a = Alarm()
+a = BaseAlarm()
 # 
 def create_event(*ev):
     e.name = "Work"
