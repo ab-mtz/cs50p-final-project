@@ -9,14 +9,18 @@ from ics import Calendar, Event
 # print(table[0])
 
 ### create a New calendar and add events
-
 c = Calendar()
 e = Event()
-e.name = "Work"
-e.begin = '2023-10-13 10:00:00'
-# e.events.duration = '2023-10-13 18:00:00'
+a = Alarm()
+# 
+def create_event(*ev):
+    e.name = "Work"
+    e.begin = '2023-10-13 10:00:00'
+    e.end = '2023-10-13 18:00:00'
+    a.trigger = '2023-10-13 9:30:00'
+    # e.duration({"hours":8})
 
-c.events.add(e)
-c.events
 
-print(event)
+c.events.add(e, a)
+# c.events
+print(c)
