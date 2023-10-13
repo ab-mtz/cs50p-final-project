@@ -1,6 +1,6 @@
 # imports
-from icalendar import Calendar, Event, vCalAddress, vText
-from datetime import datetime
+from icalendar import Calendar, Event, vCalAddress, vText, Alarm
+from datetime import datetime, timedelta
 from pathlib import Path
 import os
 import pytz
@@ -20,15 +20,17 @@ event.add('name', 'Work')
 event.add('description', 'V')
 event.add('dtstart', datetime(2023, 10, 14, 9, 0, 0, tzinfo=pytz.utc))
 event.add('dtend', datetime(2023, 10, 14, 19, 0, 0, tzinfo=pytz.utc))
+event.add_component(event)
 
-# 
-# def create_event(*ev):
-#     e.name = "Work"
-#     e.begin = '2023-10-13 10:00:00'
-#     e.end = '2023-10-13 18:00:00'
-#     a.trigger = '2023-10-13 9:30:00'
-#     # e.duration({"hours":8})
-cal.add_component(event)
+# Creatinga alarm
+alert = 20
+alarm = Alarm()
+alarm.add('action', 'DISPLAY')
+
+alert_time = timedelta(minutes=-int(alert))
+alarm.add('trigger', alert_time)
+
+event.add_component(alarm)
 # c.events
 
 # Write to disk
