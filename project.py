@@ -23,14 +23,17 @@ event.add('dtend', datetime(2023, 10, 14, 19, 0, 0, tzinfo=pytz.utc))
 event.add_component(event)
 
 # Creatinga alarm
+
+### working yet ###
 alert = 20
-alarm = Alarm()
-alarm.add('action', 'DISPLAY')
+if alert and unicode(alert).isnumeric()
+    alarm = Alarm()
+    alarm.add('action', 'DISPLAY')
 
-alert_time = timedelta(minutes=-int(alert))
-alarm.add('trigger', alert_time)
+    alert_time = timedelta(minutes=-int(alert))
+    alarm.add('trigger', alert_time)
 
-event.add_component(alarm)
+    event.add_component(alarm)
 # c.events
 
 # Write to disk
