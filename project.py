@@ -27,10 +27,14 @@ def main():
     create_and_save_calendar(events, out_path)
     # Save to calendar
 def check_arguments(args):
-    if len(args) != 3:
-        return False
+    if len(args) == 3:
+        _, in_file, out_file = args.split(" ") #Change to list comprehension, take elemnts 1 and 2
+    # Check extensions from args 1 and 2
+        
+        # if   
+        return  true
     else:
-        return True
+        return Else
     ### create a New calendar and add events
 def create_event(name, description, start_time, end_time, alert):
     event = Event()
