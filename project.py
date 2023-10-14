@@ -3,10 +3,14 @@ from icalendar import Calendar, Event, vCalAddress, vText, Alarm
 from datetime import datetime, timedelta
 from uuid import uuid1
 from pathlib import Path
-import os
+import os, sys
 import pytz
 
 def main(): 
+    # check arguments
+    if not check_arguments(sys.argv):
+        raise ValueError("Usage: project.py in_file.pdf out_file.ics")
+    print("args ok")
     # Import from table
 
     # Extract and process info
@@ -22,7 +26,11 @@ def main():
 
     create_and_save_calendar(events, out_path)
     # Save to calendar
-
+def check_arguments(args):
+    if len(args) != 3:
+        return False
+    else:
+        return True
     ### create a New calendar and add events
 def create_event(name, description, start_time, end_time, alert):
     event = Event()
