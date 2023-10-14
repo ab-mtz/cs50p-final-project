@@ -26,7 +26,8 @@ def main():
     alert = set_alarm(alert_data)
     cal.add_component(alert) 
     print(cal.content_lines)
-    directory = Path.cwd() / 'MyCalendar'
+
+    # directory = Path.cwd() / 'MyCalendar'
 # try:
 #    directory.mkdir(parents=True, exist_ok=False)
 # except FileExistsError:
@@ -35,10 +36,12 @@ def main():
 #    print("Folder was created")
  
  # Store to file
-    f = open(os.path.join('example.ics'), 'wb')
-    f.write(cal.to_ical())
-    f.close()
-
+    try:
+        f = open(os.path.join('example.ics'), 'wb')
+        f.write(cal.to_ical())
+        f.close()
+    except:
+        print("error saving file")
 # Add subcomponents
 
 def create_event(s):
@@ -66,5 +69,5 @@ def set_alarm(a):
 # for component in ecal.walk():
 #    print(component.name)
 # e.close()
-if __name__ == "__main__":
+# if __name__ == "__main__":
     main()
