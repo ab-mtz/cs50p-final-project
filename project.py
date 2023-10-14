@@ -26,7 +26,7 @@ def main():
     alert = set_alarm(alert_data)
     cal.add_component(alert) 
     print(cal.content_lines)
-# directory = Path.cwd() / 'MyCalendar'
+    directory = Path.cwd() / 'MyCalendar'
 # try:
 #    directory.mkdir(parents=True, exist_ok=False)
 # except FileExistsError:
