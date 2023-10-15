@@ -27,22 +27,19 @@ def main():
     create_and_save_calendar(events, out_path)
     # Save to calendar
 def check_arguments(args):
-    if len(args) == 3:
-        valid_extensions = ["pdf", "ics"]
-        args.pop(0)
-        in_file, out_file = args
-    # Check extensions from args 1 and 2
+    valid_extensions = ["pdf", "ics"]
 
-        extensions = [ file_name.split(".")[-1] for file_name in args]
-        print(extensions) 
-        # print(r)
-        for _ in range(extensions):
-            if extensions[i] == valid_extensions[i]:
-                print("Valid extensions")
-            else: 
-                print("Not valid extensions")
-        # if   
-        return  True
+    if len(args) == 3:
+        args.pop(0)
+    # Check extensions from args 1 and 2
+        try:
+            extensions = [file_name.split(".")[-1] for file_name in args]
+            print(extensions)
+            if extension == valid_extensions:
+                print("list are equals") 
+                return True
+        except: 
+            return False
     else:
         return False
     ### create a New calendar and add events
