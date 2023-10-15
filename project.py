@@ -17,6 +17,8 @@ def main():
    
 ##### Import from table
 
+    
+
 ##### Extract and process info
 
     event_name = 'Arbeit'
@@ -72,7 +74,7 @@ def create_and_save_calendar(events, out_file):
     cal = Calendar()
 
     # Add properties
-    cal.add('prodid', '-//My calendar product//example.com//')
+    cal.add('prodid', '-//Created by Abraham Martinez//')
     cal.add('version', '2.0')
 
     for event in events:
