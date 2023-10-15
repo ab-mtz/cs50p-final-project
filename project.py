@@ -6,6 +6,7 @@ from pathlib import Path
 import os, sys
 import pytz
 
+
 def main(): 
     # check arguments
     if not check_arguments(sys.argv):
@@ -17,11 +18,12 @@ def main():
     # Import from table
 
     # Extract and process info
-    
+    utc = pytz.timezone('Europe/Berlin')
     event_name = 'Arbeit'
     event_description = 'Verkauf'
-    start_time = datetime(2023, 10, 15, 8, 0, 0, tzinfo=pytz.utc)
-    end_time = datetime(2023, 10, 15, 10, 0, 0, tzinfo=pytz.utc)
+    print(utc.zone)
+    start_time = datetime(2023, 10, 15, 8, 0, 0, tzinfo=utc)
+    end_time = datetime(2023, 10, 15, 10, 0, 0, tzinfo=utc)
     alert = 1
     events = [
         create_event(event_name, event_description, start_time, end_time, alert)
