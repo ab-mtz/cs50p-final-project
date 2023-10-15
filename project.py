@@ -35,7 +35,7 @@ def check_arguments(args):
         try:
             extensions = [file_name.split(".")[-1] for file_name in args]
             print(extensions)
-            if extension == valid_extensions:
+            if extensions == valid_extensions:
                 print("list are equals") 
                 return True
         except: 
