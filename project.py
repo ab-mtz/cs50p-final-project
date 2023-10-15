@@ -7,21 +7,23 @@ import os, sys
 import pytz
 
 
-def main(): 
-    # check arguments
+def main():
+##### Check arguments
     if not check_arguments(sys.argv):
         raise ValueError("Usage: project.py in_file.pdf out_file.ics")
     else:
         in_file = sys.argv[0]
         out_file = sys.argv[1]
    
-    # Import from table
+##### Import from table
 
-    # Extract and process info
+##### Extract and process info
     utc = pytz.timezone('Europe/Berlin')
+
     event_name = 'Arbeit'
     event_description = 'Verkauf'
     print(utc.zone)
+    # my_datetime = datetime(*date_components, *time_components)
     start_time = datetime(2023, 10, 15, 8, 0, 0, tzinfo=utc)
     end_time = datetime(2023, 10, 15, 10, 0, 0, tzinfo=utc)
     alert = 1
@@ -29,8 +31,12 @@ def main():
         create_event(event_name, event_description, start_time, end_time, alert)
     ]
 
-    create_and_save_calendar(events, out_file)
     # Save to calendar
+    create_and_save_calendar(events, out_file)
+
+
+#######################################
+
 def check_arguments(args):
     valid_extensions = ["pdf", "ics"]
 
