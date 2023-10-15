@@ -28,13 +28,23 @@ def main():
     # Save to calendar
 def check_arguments(args):
     if len(args) == 3:
-        _, in_file, out_file = args.split(" ") #Change to list comprehension, take elemnts 1 and 2
+        valid_extensions = ["pdf", "ics"]
+        args.pop(0)
+        in_file, out_file = args
     # Check extensions from args 1 and 2
-        
+
+        extensions = [ file_name.split(".")[-1] for file_name in args]
+        print(extensions) 
+        # print(r)
+        for _ in range(extensions):
+            if extensions[i] == valid_extensions[i]:
+                print("Valid extensions")
+            else: 
+                print("Not valid extensions")
         # if   
-        return  true
+        return  True
     else:
-        return Else
+        return False
     ### create a New calendar and add events
 def create_event(name, description, start_time, end_time, alert):
     event = Event()
