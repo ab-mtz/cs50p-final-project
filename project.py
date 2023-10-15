@@ -25,12 +25,11 @@ def main():
     date = (2023, 10, 15)
     start_time = (15, 30, 00)
     end_time = (17, 30, 00)
-    # my_datetime = datetime(*date_components, *time_components)
-    start_time = datetime(*date, *start_time, tzinfo=utc)
-    end_time = datetime(*date, *end_time, tzinfo=utc)
+    start_datetime = datetime(*date, *start_time, tzinfo=utc)
+    end_datetime = datetime(*date, *end_time, tzinfo=utc)
     alert = 1
     events = [
-        create_event(event_name, event_description, start_time, end_time, alert)
+        create_event(event_name, event_description, start_datetime, end_datetime, alert)
     ]
 
     # Save to calendar
