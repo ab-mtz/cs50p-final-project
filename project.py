@@ -18,14 +18,16 @@ def main():
 ##### Import from table
 
 ##### Extract and process info
-    utc = pytz.timezone('Europe/Berlin')
 
     event_name = 'Arbeit'
     event_description = 'Verkauf'
-    print(utc.zone)
+    utc = pytz.timezone('Europe/Berlin')
+    date = (2023, 10, 15)
+    start_time = (15, 30, 00)
+    end_time = (17, 30, 00)
     # my_datetime = datetime(*date_components, *time_components)
-    start_time = datetime(2023, 10, 15, 8, 0, 0, tzinfo=utc)
-    end_time = datetime(2023, 10, 15, 10, 0, 0, tzinfo=utc)
+    start_time = datetime(*date, *start_time, tzinfo=utc)
+    end_time = datetime(*date, *end_time, tzinfo=utc)
     alert = 1
     events = [
         create_event(event_name, event_description, start_time, end_time, alert)
@@ -45,9 +47,7 @@ def check_arguments(args):
     # Check extensions from args 1 and 2
         try:
             extensions = [file_name.split(".")[-1] for file_name in args]
-            print(extensions)
             if extensions == valid_extensions:
-                print("list are equals") 
                 return True, extensions
         except: 
             return False
