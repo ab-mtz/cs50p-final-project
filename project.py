@@ -10,11 +10,14 @@ def main():
     # check arguments
     if not check_arguments(sys.argv):
         raise ValueError("Usage: project.py in_file.pdf out_file.ics")
-    print("args ok")
+    else:
+        in_file = sys.argv[0]
+        out_file = sys.argv[1]
+   
     # Import from table
 
     # Extract and process info
-    out_path = 'cal_ex.ics'
+    
     event_name = 'Arbeit'
     event_description = 'Verkauf'
     start_time = datetime(2023, 10, 15, 8, 0, 0, tzinfo=pytz.utc)
@@ -24,7 +27,7 @@ def main():
         create_event(event_name, event_description, start_time, end_time, alert)
     ]
 
-    create_and_save_calendar(events, out_path)
+    create_and_save_calendar(events, out_file)
     # Save to calendar
 def check_arguments(args):
     valid_extensions = ["pdf", "ics"]
@@ -37,7 +40,7 @@ def check_arguments(args):
             print(extensions)
             if extensions == valid_extensions:
                 print("list are equals") 
-                return True
+                return True, extensions
         except: 
             return False
     else:
@@ -57,7 +60,7 @@ def create_event(name, description, start_time, end_time, alert):
         event.add_component(alarm)
     return event
 
-def create_and_save_calendar(events, out_path):
+def create_and_save_calendar(events, out_file):
     # init the calendar
     cal = Calendar()
 
@@ -69,7 +72,7 @@ def create_and_save_calendar(events, out_path):
         cal.add_component(event)
     # Store to file
     
-    with open(out_path, 'wb') as file:
+    with open(out_file, 'wb') as file:
         file.write(cal.to_ical())
 
 if __name__ == "__main__":
