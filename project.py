@@ -3,8 +3,14 @@ from icalendar import Calendar, Event, vCalAddress, vText, Alarm
 from datetime import datetime, timedelta
 from uuid import uuid1
 from pathlib import Path
+import tabula
 import os, sys
 import pytz
+import tkinter
+# import camelot
+# import ctypes
+# from ctypes.util import find_library
+# find_library("".join(("gsdll", str(ctypes.sizeof(ctypes.c_voidp) * 8), ".dll")))
 
 
 def main():
@@ -16,9 +22,10 @@ def main():
         out_file = sys.argv[1]
    
 ##### Import from table
-
+    table = tabula.read_pdf(in_file, pages='all')
+    print("Total tables extracted:", tables.n)
     
-
+    print(table[0].df)
 ##### Extract and process info
 
     event_name = 'Arbeit'
