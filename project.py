@@ -29,9 +29,11 @@ def main():
     # print rows
     for row in table:
         # print(row)
-        for cell in row:
-            print(cell, end="\n")
-        # print(line)
+        # cleaned_row = 
+        line = ", ".join([str(cell).replace('\n', ' ') for cell in row])
+        # for cell in row:
+        #     print(cell.replace('\n', ''), end=", ")
+        print(line)
 
     with open("table_extract.txt", "w") as f:
         for row in table:
