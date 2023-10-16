@@ -23,11 +23,11 @@ def main():
         out_file = sys.argv[1]
    
 ##### Import from table
-with pdfplumber.open(in_file) as pdf:
-    page = pdf.pages[0]
-    page.extract_table()
+    with pdfplumber.open(in_file) as pdf:
+        page = pdf.pages[0]
+        page.extract_table()
 
-print(page)
+    print(page)
 ##### Extract and process info
 
     event_name = 'Arbeit'
