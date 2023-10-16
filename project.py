@@ -33,7 +33,7 @@ def main():
 
     with open("table_extract.txt", "w") as f:
         for row in table:
-            line = ", ".join([str(word) for word in row])
+            line = ", ".join(str(cell) for cell in row)
             f.write(line) 
 ##### Extract and process info
 
