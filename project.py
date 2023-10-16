@@ -28,16 +28,13 @@ def main():
         table = page.extract_table()
     # print rows
     for row in table:
-        # print(row)
-        # cleaned_row = 
+        
         line = ", ".join([str(cell).replace('\n', ' ') for cell in row])
-        # for cell in row:
-        #     print(cell.replace('\n', ''), end=", ")
         print(line)
 
     with open("table_extract.txt", "w") as f:
         for row in table:
-            line = ", ".join(str(cell) for cell in row)
+            line = ", ".join([str(cell).replace('\n', ' ') for cell in row])
             f.write(line) 
 ##### Extract and process info
 
