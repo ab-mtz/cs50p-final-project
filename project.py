@@ -33,7 +33,8 @@ def main():
 
     with open("table_extract.txt", "w") as f:
         for row in table:
-            f.write(', '.join([str(word) for word in row])) 
+            line = ", ".join([str(word) for word in row])
+            f.write(line) 
 ##### Extract and process info
 
     event_name = 'Arbeit'
