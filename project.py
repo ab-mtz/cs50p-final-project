@@ -7,6 +7,7 @@ import tabula
 import os, sys
 import pytz
 import tkinter
+import pdfplumber
 # import camelot
 # import ctypes
 # from ctypes.util import find_library
@@ -22,10 +23,11 @@ def main():
         out_file = sys.argv[1]
    
 ##### Import from table
-    table = tabula.read_pdf(in_file, pages='all')
-    print("Total tables extracted:", tables.n)
-    
-    print(table[0].df)
+with pdfplumber.open(in_file) as pdf:
+    page = pdf.pages[0]
+    page.extract_table()
+
+print(page)
 ##### Extract and process info
 
     event_name = 'Arbeit'
