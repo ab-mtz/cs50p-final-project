@@ -25,9 +25,11 @@ def main():
 ##### Import from table
     with pdfplumber.open(in_file) as pdf:
         page = pdf.pages[0]
-        page.extract_table()
+        table = page.extract_table()
 
-    print(page)
+    for row in table:
+        print(row)
+        print(len(row))
 ##### Extract and process info
 
     event_name = 'Arbeit'
