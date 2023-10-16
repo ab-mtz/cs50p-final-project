@@ -28,8 +28,10 @@ def main():
         table = page.extract_table()
     # print rows
     for row in table:
-        print(row)
-        print(len(row))
+        # print(row)
+        for cell in row:
+            print(cell, end="\n")
+        # print(line)
 
     with open("table_extract.txt", "w") as f:
         for row in table:
