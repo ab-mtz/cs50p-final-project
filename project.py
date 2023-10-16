@@ -26,10 +26,14 @@ def main():
     with pdfplumber.open(in_file) as pdf:
         page = pdf.pages[0]
         table = page.extract_table()
-
+    # print rows
     for row in table:
         print(row)
         print(len(row))
+
+    with open("table_extract.txt", "w") as f:
+        for row in table:
+            f.write(', '.join([str(word) for word in row])) 
 ##### Extract and process info
 
     event_name = 'Arbeit'
