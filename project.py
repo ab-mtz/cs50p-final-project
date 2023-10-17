@@ -52,8 +52,8 @@ def main():
     #         line = ", ".join([str(cell).replace('\n', ' ') for cell in row])
     #         f.write(line + "\n") 
 
-    header = table.pop(0)
-    print(header)
+
+    filter_results(table, worker_name="Enrique")
 
 
 
@@ -95,6 +95,26 @@ def check_arguments(args):
             return False
     else:
         return False
+
+
+def filter_results(table, worker_name):
+    ### Values to extract:
+    # event_name = 'Arbeit' # constant
+    # event_description = 'Verkauf'
+    # utc = pytz.timezone('Europe/Berlin') # constant 
+    # date = (2023, 10, 15)
+    # start_time = (15, 30, 00)
+    # end_time = (17, 30, 00)
+    # start_datetime = datetime(*date, *start_time, tzinfo=utc)
+    # end_datetime = datetime(*date, *end_time, tzinfo=utc)
+
+    # Extract the header of the table
+    header = table.pop(0)
+    print(header)
+    table.pop(0) # Remove the second row wich is useless
+    print("Content: \n", table)
+
+
     ### create a New calendar and add events
 def create_event(name, description, start_time, end_time, alert):
     event = Event()
@@ -109,8 +129,8 @@ def create_event(name, description, start_time, end_time, alert):
         alert_time = timedelta(minutes=-int(valid_alert))
         alarm.add('trigger', alert_time)
         event.add_component(alarm)
-
     return event
+
 
 def create_and_save_calendar(events, out_file):
     # init the calendar
@@ -126,6 +146,7 @@ def create_and_save_calendar(events, out_file):
     
     with open(out_file, 'wb') as file:
         file.write(cal.to_ical())
+
 
 if __name__ == "__main__":
     main()
