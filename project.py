@@ -110,9 +110,20 @@ def filter_results(table, worker_name):
 
     # Extract the header of the table
     header = table.pop(0)
-    print(header)
+    for count, cell in enumerate(header):
+        print(count, cell)
+        
+    info_indexes = [5, 8, 11, 14, 17, 20, 23]
+    # for index in range(info_indexes):
+    #     print(table[info_indexes[index]])
+    for index in info_indexes:
+        if 0 <= index < len(table):
+            print(table[index])
+        else:
+            break
+    # print(header)
     table.pop(0) # Remove the second row wich is useless
-    print("Content: \n", table)
+    # print("Content: \n", table)
 
 
     ### create a New calendar and add events
