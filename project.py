@@ -35,9 +35,6 @@ def main():
     for row in table:
         if len(row) != 25:
             sys.exit("The pdf file can't be processed")
-
-    
-
     # print rows
     # for row in table:
     #     line = ""
@@ -52,13 +49,16 @@ def main():
     #         line = ", ".join([str(cell).replace('\n', ' ') for cell in row])
     #         f.write(line + "\n") 
 
+    
+
+
 
 
 ##### Extract and process info
     # Create a Clas????
-    event_name = 'Arbeit'
+    event_name = 'Arbeit' # constant
     event_description = 'Verkauf'
-    utc = pytz.timezone('Europe/Berlin')
+    utc = pytz.timezone('Europe/Berlin') # constant 
     date = (2023, 10, 15)
     start_time = (15, 30, 00)
     end_time = (17, 30, 00)
@@ -96,12 +96,14 @@ def create_event(name, description, start_time, end_time, alert):
     event.add('description', description)
     event.add('dtstart', start_time)
     event.add('dtend', end_time)
-    if alert:
+    if alert:     # Think about corner cases: check_alert
         alarm = Alarm()
         alarm.add('action', 'DISPLAY')
-        alert_time = timedelta(minutes=-int(alert))
+        valid_alert = alert if alert >= 0 else 0
+        alert_time = timedelta(minutes=-int(valid_alert))
         alarm.add('trigger', alert_time)
         event.add_component(alarm)
+
     return event
 
 def create_and_save_calendar(events, out_file):
