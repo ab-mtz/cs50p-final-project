@@ -30,11 +30,12 @@ def main():
     except:
         print("PDF file not found")        
     
+# Check if the pdf structure corresponds to the expected one
+# presumably there are 25 cells per row in this file's structure 
     for row in table:
         if len(row) != 25:
             sys.exit("The pdf file can't be processed")
 
-    # presumably there are 25 cells per row in this file's structure 
     
 
     # print rows
