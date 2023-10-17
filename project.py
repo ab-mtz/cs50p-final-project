@@ -15,7 +15,10 @@ import pdfplumber
 
 
 def main():
+
+# INPUTS: in_file, out_file, worker_name, alert
 ##### Check arguments
+
     if not check_arguments(sys.argv):
         raise ValueError("Usage: project.py in_file.pdf out_file.ics")
     else:
@@ -49,13 +52,14 @@ def main():
     #         line = ", ".join([str(cell).replace('\n', ' ') for cell in row])
     #         f.write(line + "\n") 
 
-    
+    header = table.pop(0)
+    print(header)
 
 
 
 
 ##### Extract and process info
-    # Create a Clas????
+    # Create a Class????
     event_name = 'Arbeit' # constant
     event_description = 'Verkauf'
     utc = pytz.timezone('Europe/Berlin') # constant 
@@ -64,7 +68,9 @@ def main():
     end_time = (17, 30, 00)
     start_datetime = datetime(*date, *start_time, tzinfo=utc)
     end_datetime = datetime(*date, *end_time, tzinfo=utc)
-    alert = 1
+    alert = 1#Engloba lo anterior entregado por una funcion 
+    
+
     events = [
         create_event(event_name, event_description, start_datetime, end_datetime, alert)
     ]
