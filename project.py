@@ -23,21 +23,38 @@ def main():
         out_file = sys.argv[1]
    
 ##### Import from table
-    with pdfplumber.open(in_file) as pdf:
-        page = pdf.pages[0]
-        table = page.extract_table()
-    # print rows
+    try:
+        with pdfplumber.open(in_file) as pdf:
+            page = pdf.pages[0]
+            table = page.extract_table()
+    except:
+        print("PDF file not found")        
+    
     for row in table:
-        
-        line = ", ".join([str(cell).replace('\n', ' ') for cell in row])
-        print(line)
+        if len(row) != 25:
+            sys.exit("The pdf file can't be processed")
 
-    with open("table_extract.txt", "w") as f:
-        for row in table:
-            line = ", ".join([str(cell).replace('\n', ' ') for cell in row])
-            f.write(line) 
+    # presumably there are 25 cells per row in this file's structure 
+    
+
+    # print rows
+    # for row in table:
+    #     line = ""
+    #     line = ", ".join([str(cell).replace('\n', ' ') for cell in row])
+    #     print(line +"\n")
+    #     print(len(row))
+
+    # Write results into a document to register and analize it for the next steps
+    # with open("table_extract.txt", "w") as f:
+    #     for row in table:
+    #         line = ""
+    #         line = ", ".join([str(cell).replace('\n', ' ') for cell in row])
+    #         f.write(line + "\n") 
+
+
+
 ##### Extract and process info
-
+    # Create a Clas????
     event_name = 'Arbeit'
     event_description = 'Verkauf'
     utc = pytz.timezone('Europe/Berlin')
