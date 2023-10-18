@@ -56,8 +56,6 @@ def main():
     filter_results(table, worker_name="Enrique")
 
 
-
-
 ##### Extract and process info
     # Create a Class????
     event_name = 'Arbeit' # constant
@@ -68,7 +66,8 @@ def main():
     end_time = (17, 30, 00)
     start_datetime = datetime(*date, *start_time, tzinfo=utc)
     end_datetime = datetime(*date, *end_time, tzinfo=utc)
-    alert = 1#Engloba lo anterior entregado por una funcion 
+    alert = 1 
+    #Engloba lo anterior entregado por una funcion 
     
 
     events = [
@@ -115,14 +114,12 @@ def filter_results(table, worker_name):
     #     print(count, cell)
         
     info_indexes = [5, 8, 11, 14, 17, 20, 23]
-    # print relevant indexes
+    # store content of relevant indexes in header to a list of tuples
     dates = []
     for _ in range(len(info_indexes)):
         tup_res = tuple(map(int, header[info_indexes[_]].split(".")))
         dates.append(tup_res)
-        # print(header[info_indexes[_]])
     
-    print(dates)
     # print(header)
     table.pop(0) # Remove the second row wich is useless
     # print("Content: \n", table)
