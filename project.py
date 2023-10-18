@@ -119,7 +119,8 @@ def filter_results(table, worker_name):
     dates = []
     for _ in range(len(info_indexes)):
         dates.append(header[info_indexes[_]])
-        print(header[info_indexes[_]])
+        # print(header[info_indexes[_]])
+    print(dates)
     # print(header)
     table.pop(0) # Remove the second row wich is useless
     # print("Content: \n", table)
