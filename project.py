@@ -64,6 +64,7 @@ def main():
     date = (2023, 10, 15)
     start_time = (15, 30, 00)
     end_time = (17, 30, 00)
+
     start_datetime = datetime(*date, *start_time, tzinfo=utc)
     end_datetime = datetime(*date, *end_time, tzinfo=utc)
     alert = 1 
@@ -99,31 +100,35 @@ def check_arguments(args):
 def filter_results(table, worker_name):
     ### Values to extract:
     # event_name = 'Arbeit' # constant
-    # event_description = 'Verkauf'
     # utc = pytz.timezone('Europe/Berlin') # constant 
     # date = (2023, 10, 15)
     # start_time = (15, 30, 00)
     # end_time = (17, 30, 00)
+    # event_description = 'Verkauf'
     # start_datetime = datetime(*date, *start_time, tzinfo=utc)
     # end_datetime = datetime(*date, *end_time, tzinfo=utc)
+    dates = []
+    # name = worker_name
+    start_times = []
+    end_times = []
+    event_description = ""
 
     # Extract the header of the table
     header = table.pop(0)
     # This loops is used to see wich indexes contains the relevant info, so we can filter it later
     # for count, cell in enumerate(header):
     #     print(count, cell)
-        
-    info_indexes = [5, 8, 11, 14, 17, 20, 23]
+    relevant_indexes = [5, 8, 11, 14, 17, 20, 23]
     # store content of relevant indexes in header to a list of tuples
-    dates = []
-    for _ in range(len(info_indexes)):
-        tup_res = tuple(map(int, header[info_indexes[_]].split(".")))
+    for _ in range(len(relevant_indexes)):
+        tup_res = tuple(map(int, header[relevant_indexes[_]].split(".")))
         dates.append(tup_res)
     
-    # print(header)
     table.pop(0) # Remove the second row wich is useless
-    # print("Content: \n", table)
 
+    # Extract values from cell that corresponds to the worker in question
+    for worker in table:
+        print(worker)
 
     ### create a New calendar and add events
 def create_event(name, description, start_time, end_time, alert):
