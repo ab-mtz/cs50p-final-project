@@ -128,7 +128,7 @@ def filter_results(table, worker_name):
 
     # Extract values from cell that corresponds to the worker in question
     for worker in table:
-        print(worker)
+        print(worker[0] if worker[0] == worker_name else "Not this")
 
     ### create a New calendar and add events
 def create_event(name, description, start_time, end_time, alert):
