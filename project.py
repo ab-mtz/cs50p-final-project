@@ -118,8 +118,10 @@ def filter_results(table, worker_name):
     # print relevant indexes
     dates = []
     for _ in range(len(info_indexes)):
-        dates.append(header[info_indexes[_]])
+        tup_res = tuple(map(int, header[info_indexes[_]].split(".")))
+        dates.append()
         # print(header[info_indexes[_]])
+    
     print(dates)
     # print(header)
     table.pop(0) # Remove the second row wich is useless
