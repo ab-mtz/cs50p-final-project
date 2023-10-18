@@ -119,7 +119,7 @@ def filter_results(table, worker_name):
     dates = []
     for _ in range(len(info_indexes)):
         tup_res = tuple(map(int, header[info_indexes[_]].split(".")))
-        dates.append()
+        dates.append(tup_res)
         # print(header[info_indexes[_]])
     
     print(dates)
