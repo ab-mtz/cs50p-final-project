@@ -146,7 +146,8 @@ def filter_results(table, worker_name):
     cells = []
     for cell in worker_row:
         if cell:
-            cells.append(cell)
+            if cell != worker_name:
+                cells.append(cell)
     print(cells)
 
 
