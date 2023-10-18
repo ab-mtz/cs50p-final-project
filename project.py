@@ -118,11 +118,19 @@ def filter_results(table, worker_name):
     # This loops is used to see wich indexes contains the relevant info, so we can filter it later
     # for count, cell in enumerate(header):
     #     print(count, cell)
+
     relevant_indexes = [5, 8, 11, 14, 17, 20, 23]
     # store content of relevant indexes in header to a list of tuples
     for _ in range(len(relevant_indexes)):
         tup_res = tuple(map(int, header[relevant_indexes[_]].split(".")))
         dates.append(tup_res)
+    
+    # This method could work as well, we would need to add some filter with regex to get the relevant info
+    # res =[]
+    # for cell in header:
+    #     if cell:
+    #         res.append(cell)
+    # print(res)
     
     table.pop(0) # Remove the second row wich is useless
 
@@ -133,12 +141,12 @@ def filter_results(table, worker_name):
             worker_row = worker 
     if not worker_row:
         sys.exit("Worker name not found")
-    print(worker_row)
+    # print(worker_row)
     # Filter and parse worker_row
     cells = []
     for cell in worker_row:
         if cell:
-            cells.append()
+            cells.append(cell)
     print(cells)
 
 
