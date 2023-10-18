@@ -53,7 +53,7 @@ def main():
     #         f.write(line + "\n") 
 
 
-    filter_results(table, worker_name="Enrique")
+    filter_results(table, worker_name="Paula")
 
 
 ##### Extract and process info
@@ -127,14 +127,21 @@ def filter_results(table, worker_name):
     table.pop(0) # Remove the second row wich is useless
 
     # Extract values from cell that corresponds to the worker in question
-    
+    worker_row = []
     for worker in table:
         if worker[0] == worker_name:
             worker_row = worker 
     if not worker_row:
         sys.exit("Worker name not found")
-    # worker_row = [table[i] for i in table if table[0][i] == worker_name]
     print(worker_row)
+    # Filter and parse worker_row
+    cells = []
+    for cell in worker_row:
+        if cell:
+            cells.append()
+    print(cells)
+
+
     ### create a New calendar and add events
 def create_event(name, description, start_time, end_time, alert):
     event = Event()
