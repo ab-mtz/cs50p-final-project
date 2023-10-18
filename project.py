@@ -110,17 +110,16 @@ def filter_results(table, worker_name):
 
     # Extract the header of the table
     header = table.pop(0)
-    for count, cell in enumerate(header):
-        print(count, cell)
+    # This loops is used to see wich indexes contains the relevant info, so we can filter it later
+    # for count, cell in enumerate(header):
+    #     print(count, cell)
         
     info_indexes = [5, 8, 11, 14, 17, 20, 23]
-    # for index in range(info_indexes):
-    #     print(table[info_indexes[index]])
-    for index in info_indexes:
-        if 0 <= index < len(table):
-            print(table[index])
-        else:
-            break
+    # print relevant indexes
+    dates = []
+    for _ in range(len(info_indexes)):
+        dates.append(header[info_indexes[_]])
+        print(header[info_indexes[_]])
     # print(header)
     table.pop(0) # Remove the second row wich is useless
     # print("Content: \n", table)
