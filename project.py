@@ -154,7 +154,7 @@ def filter_results(table, worker_name):
     #regex example: 'V 10:00-18:00'
     evs = []
     for cell in cells:
-        if matches := re.search(r"(.+\s.+[-].+)(.+\s.+[-].+)?(.+\s.+[-].+)?")
+        if matches := re.search(r"(.+\s.+[-].+)(.+\s.+[-].+)?(.+\s.+[-].+)?"):
             evs = matches.group(1)
     print(evs)
 
