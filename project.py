@@ -151,11 +151,11 @@ def filter_results(table, worker_name):
 
     #### NEXT: extract description, start_time, end_time
     # Check how to manage two events in same day cases
-    #regex example: 'V 10:00-18:00'
+    #regex example: 'V 10:00-18:00' \w\s\d{2}:\d{2}-\d{2}:\d{2}
     evs = []
     for cell in cells:
-        if matches := re.search(r"(.+\s.+[-].+)(\n.+\s.+[-].+)?(\n.+\s.+[-].+)?", cell):
-            evs = matches.group(1)
+        if matches := re.findall(r"\w\s\d{2}:\d{2}-\d{2}:\d{2}", cell): #(\n.+\s.+[-].+)?(\n.+\s.+[-].+)?", cell):
+            evs = matches
     print(evs)
 
 
