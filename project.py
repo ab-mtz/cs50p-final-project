@@ -150,6 +150,10 @@ def filter_results(table, worker_name):
                 cells.append(cell)
     print(cells)
 
+    #### NEXT: extract description, start_time, end_time
+    # Check how to manage two events in same day cases
+
+
 
     ### create a New calendar and add events
 def create_event(name, description, start_time, end_time, alert):
