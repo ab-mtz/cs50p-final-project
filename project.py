@@ -6,12 +6,9 @@ from pathlib import Path
 import tabula
 import os, sys
 import pytz
-import tkinter
 import pdfplumber
-# import camelot
-# import ctypes
-# from ctypes.util import find_library
-# find_library("".join(("gsdll", str(ctypes.sizeof(ctypes.c_voidp) * 8), ".dll")))
+import re
+
 
 
 def main():
@@ -70,7 +67,8 @@ def main():
     alert = 1 
     #Engloba lo anterior entregado por una funcion 
     
-
+    # Manage multiple events per day
+    # for e in day_events 
     events = [
         create_event(event_name, event_description, start_datetime, end_datetime, alert)
     ]
@@ -147,11 +145,19 @@ def filter_results(table, worker_name):
     for cell in worker_row:
         if cell:
             if cell != worker_name:
+                
                 cells.append(cell)
     print(cells)
 
     #### NEXT: extract description, start_time, end_time
     # Check how to manage two events in same day cases
+    #regex example: 'V 10:00-18:00'
+    evs = []
+    for cell in cells:
+        if matches := re.search(r"(.+\s.+[-].+)(.+\s.+[-].+)?(.+\s.+[-].+)?")
+            evs = matches.group(1)
+    print(evs)
+
 
 
 
