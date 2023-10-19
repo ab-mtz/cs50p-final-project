@@ -154,7 +154,7 @@ def filter_results(table, worker_name):
     #regex example: 'V 10:00-18:00' \w\s\d{2}:\d{2}-\d{2}:\d{2}
     evs = []
     for cell in cells:
-        if matches := re.findall(r"\w\s\d{2}:\d{2}-\d{2}:\d{2}", cell): #(\n.+\s.+[-].+)?(\n.+\s.+[-].+)?", cell):
+        if matches := re.findall(r"\n?\w\s\d{2}:\d{2}-\d{2}:\d{2}", cell): #(\n.+\s.+[-].+)?(\n.+\s.+[-].+)?", cell):
             evs = matches
     print(evs)
 
