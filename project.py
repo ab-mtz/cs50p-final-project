@@ -91,16 +91,19 @@ def main():
         day_events.append(extract_events(cell))
     # print("Day events: ", day_events)
 
-    for i in range(len(dates):
+    for i in range(len(dates)):
         # match event(s) with date
         # if event len >1 parse events
             # make per event
             # parse: description, start_time, end_time
             # assing datetimes
             # create_event
-        # assing event_
-        if event != None:
-            for ev in event:
+        # assign event_
+        if event[i] != None:
+            for ev in event[i]:
+                parsed_date = [dates[i].split(".")]
+                print("Parsed date: ", parsed_date)
+                # start_datetime = date.
 
             print (event)
     
