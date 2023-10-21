@@ -12,7 +12,7 @@ import re
 
 
 def main():
-    abvs = [
+    abvs = {
         "D": "Doublon",
         "DG": "Doublon Geschäft",
         "I": "Inventur",
@@ -29,7 +29,7 @@ def main():
         "U": "Umbau",
         "UG": "Umbau Geschäft",
         "V": "Verkauf"
-    ]
+    }
 
 # INPUTS: in_file, out_file, worker_name, alert
 ##### Check arguments
@@ -67,10 +67,8 @@ def main():
     #         line = ", ".join([str(cell).replace('\n', ' ') for cell in row])
     #         f.write(line + "\n") 
 
-
     cells = filter_results(table, worker_name="Paula")
-
-
+    print(cells)
 ##### Extract and process info
     # Create a Class????
     # event_name = 'Arbeit' # constant
@@ -91,8 +89,15 @@ def main():
     for cell in cells:
         day_events.append(extract_events(cell))
     print(day_events)
+
     for event in day_events:
-        if 
+        # match event(s) with date
+        # if event len >1 parse events
+            # make per event
+            # parse: description, start_time, end_time
+        # assing event_
+        if event != None:
+            print (event)
     
     # Manage multiple events per day
     # for e in day_events 
