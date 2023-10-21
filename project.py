@@ -13,6 +13,11 @@ import re
 # Arguments: add name arg and alarm arg
 # Refactorize """per day"""
 # wite test_ :\
+# Correct format,
+# Add comments to documentation
+# Write instructions to google calendar 
+# Think how to manage all calendars (from workers) in one calendar
+
 
 def main():
 
