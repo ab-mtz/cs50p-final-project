@@ -79,6 +79,8 @@ def main():
             dates.append(extract_dates(header[i]))
         else:
             pass
+
+    print(dates)
     
     day_events = []
     for cell in cells:
@@ -197,7 +199,13 @@ def filter_results(table, worker_name):
 def extract_dates(cell):
     _match = ""
     if _match := re.findall(r"\d+\.\d+\.\d+", cell):
+        # Date comes in format DD.MM.YY
+        print(_match)
+        _parsed_date = map(int, _match[0].split("."))
+        print(_parsed_date)
         parsed_date = tuple(map(int, _match[0].split(".")))
+        # parsed_date[0] = (parsed_date[0] + 2000)
+        # print(parsed_date)
         return parsed_date
     
 
