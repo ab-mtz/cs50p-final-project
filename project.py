@@ -35,7 +35,7 @@ def main():
 ##### Check arguments
 
     if not check_arguments(sys.argv):
-        raise ValueError("Usage: project.py in_file.pdf out_file.ics")
+        raise ValueError("Usage: project.py in_file.pdf out_file.ics alert(int)")
     else:
         in_file = sys.argv[0]
         out_file = sys.argv[1]
@@ -95,6 +95,8 @@ def main():
         # if event len >1 parse events
             # make per event
             # parse: description, start_time, end_time
+            # assing datetimes
+            # create_event
         # assing event_
         if event != None:
             print (event)
