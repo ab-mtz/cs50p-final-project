@@ -69,7 +69,7 @@ def main():
 
     header, cells = filter_results(table, worker_name="Paula")
     print("Header:", header)
-    print("Cells:", cells)
+    # print("Cells:", cells)
 ##### Extract and process info
     # Create a Class????
     # event_name = 'Arbeit' # constant
@@ -85,7 +85,10 @@ def main():
     #Engloba lo anterior entregado por una funcion 
     dates = []
     for i in range(5, len(header)):
-        dates.append(extract_dates(header[i]))
+        if extract_dates(header[i]):
+            dates.append(extract_dates(header[i]))
+        else:
+            pass
     print(dates)
     
     #### NEXT: extract description, start_time, end_time
@@ -189,8 +192,10 @@ def filter_results(table, worker_name):
 
 
 def extract_dates(cell):
+    match = ""
+    if match := re.findall(r"\d+\.\d+\.\d+", cell):
+        return match
     
-
 
 def extract_events(cell):
     #### NEXT: extract description, start_time, end_time
