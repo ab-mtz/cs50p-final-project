@@ -67,8 +67,9 @@ def main():
     #         line = ", ".join([str(cell).replace('\n', ' ') for cell in row])
     #         f.write(line + "\n") 
 
-    cells = filter_results(table, worker_name="Paula")
-    print(cells)
+    header, cells = filter_results(table, worker_name="Paula")
+    print("Header:", header)
+    print("Cells:", cells)
 ##### Extract and process info
     # Create a Class????
     # event_name = 'Arbeit' # constant
@@ -82,7 +83,10 @@ def main():
     # end_datetime = datetime(*date, *end_time, tzinfo=utc)
     # alert = 1 
     #Engloba lo anterior entregado por una funcion 
-
+    dates = []
+    for cell in header:
+        dates.append(extract_dates(cell))
+    
     #### NEXT: extract description, start_time, end_time
     # Check how to manage two events in same day cases
     day_events = []
@@ -180,7 +184,7 @@ def filter_results(table, worker_name):
         if cell:
             if cell != worker_name:
                 cells.append(cell)
-    return cells
+    return header, cells
 
 
 def extract_events(cell):
