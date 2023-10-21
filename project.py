@@ -50,7 +50,7 @@ def main():
     #         f.write(line + "\n") 
 
 
-    filter_results(table, worker_name="Paula")
+    cells = filter_results(table, worker_name="Paula")
 
 
 ##### Extract and process info
@@ -73,7 +73,6 @@ def main():
     evs = []
     for cell in cells:
         evs = extract_events(cell)
-            evs = matches
     print(evs)
     
     # Manage multiple events per day
