@@ -204,10 +204,7 @@ def extract_events(cell):
     if cell in _omisions:
         return None    
     elif match := re.findall(r"\w\s\d{2}:\d{2}-\d{2}:\d{2}", cell): #(\n.+\s.+[-].+)?(\n.+\s.+[-].+)?", cell):
-        legende, times = match.split(" ")
-        start_time, end_time = times.split("-").split(":")
-        
-        print( legente, start_time, end_time)
+        return match
     # print(matches)
 
 
