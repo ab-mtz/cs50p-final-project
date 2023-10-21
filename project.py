@@ -9,7 +9,9 @@ import pytz
 import pdfplumber
 import re
 
-
+""" NEXT: """
+# Arguments: add name arg and alarm arg
+# Refactorize """per day"""
 
 def main():
 
@@ -87,7 +89,7 @@ def main():
         day_events.append(extract_events(cell))
 
     # print("Day events: ", day_events)
-
+    """ Per day: extracting events and creating events """
     events = []
     for i in range(len(dates)):
         if day_events[i] != None:
