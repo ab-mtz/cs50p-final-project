@@ -154,7 +154,6 @@ def filter_results(table, worker_name):
     for cell in worker_row:
         if cell:
             if cell != worker_name:
-                
                 cells.append(cell)
     return cells
 
@@ -162,7 +161,7 @@ def filter_results(table, worker_name):
 def extract_events(cell):
     #### NEXT: extract description, start_time, end_time
     if matches := re.findall(r"\w\s\d{2}:\d{2}-\d{2}:\d{2}", cell): #(\n.+\s.+[-].+)?(\n.+\s.+[-].+)?", cell):
-    
+        print(matches)
 
 
     ### create a New calendar and add events
