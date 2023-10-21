@@ -89,7 +89,7 @@ def main():
     day_events = []
     for cell in cells:
         day_events.append(extract_events(cell))
-    print(day_events)
+    # print("Day events: ", day_events)
 
     for event in day_events:
         # match event(s) with date
@@ -198,7 +198,7 @@ def extract_events(cell):
         return None    
     elif match := re.findall(r"\w\s\d{2}:\d{2}-\d{2}:\d{2}", cell): #(\n.+\s.+[-].+)?(\n.+\s.+[-].+)?", cell):
         return match
-    print(matches)
+    # print(matches)
 
 
     ### create a New calendar and add events
