@@ -12,27 +12,24 @@ import re
 
 
 def main():
-abvs = [
-    "D": "Doublon",
-    "DG": "Doublon Geschäft",
-    "I": "Inventur",
-    "IN": "Information",
-    "IND": "Indi/HJG/EJG",
-    "KA": "Kasse",
-    "KP": "Kassenpermanenz",
-    "LI": "Lieferzone",
-    "M": "Mission",
-    "MG": "Mission Geschäft",
-    "P": "Permanenz",
-    "PG": "Permanenz Geschäft",
-    "TL": "TL",
-    "U": "Umbau",
-    "UG": "Umbau Geschäft",
-    "V": "Verkauf"
-
-]
-
-
+    abvs = [
+        "D": "Doublon",
+        "DG": "Doublon Geschäft",
+        "I": "Inventur",
+        "IN": "Information",
+        "IND": "Indi/HJG/EJG",
+        "KA": "Kasse",
+        "KP": "Kassenpermanenz",
+        "LI": "Lieferzone",
+        "M": "Mission",
+        "MG": "Mission Geschäft",
+        "P": "Permanenz",
+        "PG": "Permanenz Geschäft",
+        "TL": "TL",
+        "U": "Umbau",
+        "UG": "Umbau Geschäft",
+        "V": "Verkauf"
+    ]
 
 # INPUTS: in_file, out_file, worker_name, alert
 ##### Check arguments
