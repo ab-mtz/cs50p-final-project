@@ -12,6 +12,27 @@ import re
 
 
 def main():
+abvs = [
+    "D": "Doublon",
+    "DG": "Doublon Geschäft",
+    "I": "Inventur",
+    "IN": "Information",
+    "IND": "Indi/HJG/EJG",
+    "KA": "Kasse",
+    "KP": "Kassenpermanenz",
+    "LI": "Lieferzone",
+    "M": "Mission",
+    "MG": "Mission Geschäft",
+    "P": "Permanenz",
+    "PG": "Permanenz Geschäft",
+    "TL": "TL",
+    "U": "Umbau",
+    "UG": "Umbau Geschäft",
+    "V": "Verkauf"
+
+]
+
+
 
 # INPUTS: in_file, out_file, worker_name, alert
 ##### Check arguments
@@ -69,11 +90,12 @@ def main():
 
     #### NEXT: extract description, start_time, end_time
     # Check how to manage two events in same day cases
-    #regex example: 'V 10:00-18:00' \w\s\d{2}:\d{2}-\d{2}:\d{2}
-    evs = []
+    day_events = []
     for cell in cells:
-        evs.append(extract_events(cell))
-    print(evs)
+        day_events.append(extract_events(cell))
+    print(day_events)
+    for event in day_events:
+        if 
     
     # Manage multiple events per day
     # for e in day_events 
