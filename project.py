@@ -82,26 +82,29 @@ def main():
             dates.append(extract_dates(header[i]))
         else:
             pass
-    print("Dates: ", dates)
+    # print("Dates: ", dates)
     
     #### NEXT: extract description, start_time, end_time
     # Check how to manage two events in same day cases
     day_events = []
     for cell in cells:
         day_events.append(extract_events(cell))
-    # print("Day events: ", day_events)
+    print("Day events: ", day_events)
 
     for i in range(len(dates)):
-        # match event(s) with date
-        # if event len >1 parse events
-            # make per event
-            # parse: description, start_time, end_time
-            # assing datetimes
-            # create_event
-        # assign event_
-        """ Keep here """
-        # if event[i] != None:
-        #     for ev in event[i]:
+        if day_events[i] != None:
+            for ev in day_events[i]:
+                legende, times = ev.split(" ")
+                start, end = times.split("-")
+                start_time = tuple(map(int, start.split(":"))) + ((00),)
+                start_datetime = dates[i] + start_time 
+                end_time = tuple(map(int, end.split(":"))) + ((00),)
+                end_datetime = dates[i] + end_time
+                print("Legende: ", legende)
+                print("Start date time: ", start_datetime)
+                print("End date time: ", end_datetime)
+
+
                 
         #         # print("Parsed date: ", parsed_date)
         #         # start_datetime = date.
@@ -193,7 +196,7 @@ def filter_results(table, worker_name):
 def extract_dates(cell):
     _match = ""
     if _match := re.findall(r"\d+\.\d+\.\d+", cell):
-        parsed_date = tuple(_match[0].split("."))
+        parsed_date = tuple(map(int, _match[0].split(".")))
         return parsed_date
     
 
