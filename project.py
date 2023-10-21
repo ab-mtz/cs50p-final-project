@@ -91,7 +91,7 @@ def main():
         day_events.append(extract_events(cell))
     # print("Day events: ", day_events)
 
-    for event in day_events:
+    for i in range(len(dates):
         # match event(s) with date
         # if event len >1 parse events
             # make per event
@@ -100,6 +100,8 @@ def main():
             # create_event
         # assing event_
         if event != None:
+            for ev in event:
+
             print (event)
     
     # Manage multiple events per day
