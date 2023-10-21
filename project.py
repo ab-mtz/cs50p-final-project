@@ -99,13 +99,14 @@ def main():
             # assing datetimes
             # create_event
         # assign event_
-        if event[i] != None:
-            for ev in event[i]:
-                parsed_date = [dates[i].split(".")]
-                print("Parsed date: ", parsed_date)
-                # start_datetime = date.
+        """ Keep here """
+        # if event[i] != None:
+        #     for ev in event[i]:
+                
+        #         # print("Parsed date: ", parsed_date)
+        #         # start_datetime = date.
 
-            print (event)
+        #     print(event)
     
     # Manage multiple events per day
     # for e in day_events 
@@ -190,9 +191,10 @@ def filter_results(table, worker_name):
 
 
 def extract_dates(cell):
-    match = ""
-    if match := re.findall(r"\d+\.\d+\.\d+", cell):
-        return match[0]
+    _match = ""
+    if _match := re.findall(r"\d+\.\d+\.\d+", cell):
+        parsed_date = tuple(_match[0].split("."))
+        return parsed_date
     
 
 def extract_events(cell):
@@ -202,7 +204,10 @@ def extract_events(cell):
     if cell in _omisions:
         return None    
     elif match := re.findall(r"\w\s\d{2}:\d{2}-\d{2}:\d{2}", cell): #(\n.+\s.+[-].+)?(\n.+\s.+[-].+)?", cell):
-        return match
+        legende, times = match.split(" ")
+        start_time, end_time = times.split("-").split(":")
+        
+        print( legente, start_time, end_time)
     # print(matches)
 
 
