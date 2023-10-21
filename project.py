@@ -72,7 +72,7 @@ def main():
     #regex example: 'V 10:00-18:00' \w\s\d{2}:\d{2}-\d{2}:\d{2}
     evs = []
     for cell in cells:
-        evs = extract_events(cell)
+        evs.append(extract_events(cell))
     print(evs)
     
     # Manage multiple events per day
@@ -159,8 +159,13 @@ def filter_results(table, worker_name):
 
 def extract_events(cell):
     #### NEXT: extract description, start_time, end_time
-    if matches := re.findall(r"\w\s\d{2}:\d{2}-\d{2}:\d{2}", cell): #(\n.+\s.+[-].+)?(\n.+\s.+[-].+)?", cell):
-        print(matches)
+    
+    _omisions = ["abwesend", "frei"]
+    if cell in _omisions:
+        return None    
+    elif match := re.findall(r"\w\s\d{2}:\d{2}-\d{2}:\d{2}", cell): #(\n.+\s.+[-].+)?(\n.+\s.+[-].+)?", cell):
+        return match
+    print(matches)
 
 
     ### create a New calendar and add events
