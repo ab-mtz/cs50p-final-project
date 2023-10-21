@@ -100,6 +100,8 @@ def main():
                 start_datetime = dates[i] + start_time 
                 end_time = tuple(map(int, end.split(":"))) + ((00),)
                 end_datetime = dates[i] + end_time
+                event_name = abvs[legende]
+                event_description = "Decathlon"
                 print("Legende: ", legende)
                 print("Start date time: ", start_datetime)
                 print("End date time: ", end_datetime)
