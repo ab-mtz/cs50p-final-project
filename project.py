@@ -69,7 +69,7 @@ def main():
     #         line = ", ".join([str(cell).replace('\n', ' ') for cell in row])
     #         f.write(line + "\n") 
     """ Filter results from table """
-    header, cells = filter_results(table, worker_name="Paula")
+    header, cells = filter_results(table, worker_name="Abraham")
    
 ##### Extract and process info
     """ Extracting dates """
