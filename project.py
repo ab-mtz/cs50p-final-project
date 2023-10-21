@@ -66,8 +66,9 @@ def main():
     #         line = ""
     #         line = ", ".join([str(cell).replace('\n', ' ') for cell in row])
     #         f.write(line + "\n") 
-
+    """ Filter results from table """
     header, cells = filter_results(table, worker_name="Paula")
+    
     # print("Header:", header)
     # print("Cells:", cells)
 ##### Extract and process info
@@ -89,6 +90,7 @@ def main():
     day_events = []
     for cell in cells:
         day_events.append(extract_events(cell))
+
     print("Day events: ", day_events)
 
     for i in range(len(dates)):
@@ -208,7 +210,7 @@ def extract_events(cell):
     _omisions = ["abwesend", "frei"]
     if cell in _omisions:
         return None    
-    elif match := re.findall(r"\w\s\d{2}:\d{2}-\d{2}:\d{2}", cell): #(\n.+\s.+[-].+)?(\n.+\s.+[-].+)?", cell):
+    elif match := re.findall(r"\w+\s\d{2}:\d{2}-\d{2}:\d{2}", cell): #(\n.+\s.+[-].+)?(\n.+\s.+[-].+)?", cell):
         return match
     # print(matches)
 
