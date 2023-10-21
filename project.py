@@ -84,8 +84,9 @@ def main():
     # alert = 1 
     #Engloba lo anterior entregado por una funcion 
     dates = []
-    for cell in header:
-        dates.append(extract_dates(cell))
+    for i in range(5, len(header)):
+        dates.append(extract_dates(header[i]))
+    print(dates)
     
     #### NEXT: extract description, start_time, end_time
     # Check how to manage two events in same day cases
@@ -185,6 +186,10 @@ def filter_results(table, worker_name):
             if cell != worker_name:
                 cells.append(cell)
     return header, cells
+
+
+def extract_dates(cell):
+    
 
 
 def extract_events(cell):
