@@ -55,17 +55,26 @@ def main():
 
 ##### Extract and process info
     # Create a Class????
-    event_name = 'Arbeit' # constant
-    event_description = 'Verkauf'
-    utc = pytz.timezone('Europe/Berlin') # constant 
-    date = (2023, 10, 15)
-    start_time = (15, 30, 00)
-    end_time = (17, 30, 00)
+    # event_name = 'Arbeit' # constant
+    # event_description = 'Verkauf'
+    # utc = pytz.timezone('Europe/Berlin') # constant 
+    # date = (2023, 10, 15)
+    # start_time = (15, 30, 00)
+    # end_time = (17, 30, 00)
 
-    start_datetime = datetime(*date, *start_time, tzinfo=utc)
-    end_datetime = datetime(*date, *end_time, tzinfo=utc)
-    alert = 1 
+    # start_datetime = datetime(*date, *start_time, tzinfo=utc)
+    # end_datetime = datetime(*date, *end_time, tzinfo=utc)
+    # alert = 1 
     #Engloba lo anterior entregado por una funcion 
+
+    #### NEXT: extract description, start_time, end_time
+    # Check how to manage two events in same day cases
+    #regex example: 'V 10:00-18:00' \w\s\d{2}:\d{2}-\d{2}:\d{2}
+    evs = []
+    for cell in cells:
+        evs = extract_events(cell)
+            evs = matches
+    print(evs)
     
     # Manage multiple events per day
     # for e in day_events 
@@ -147,18 +156,13 @@ def filter_results(table, worker_name):
             if cell != worker_name:
                 
                 cells.append(cell)
-    print(cells)
+    return cells
 
+
+def extract_events(cell):
     #### NEXT: extract description, start_time, end_time
-    # Check how to manage two events in same day cases
-    #regex example: 'V 10:00-18:00' \w\s\d{2}:\d{2}-\d{2}:\d{2}
-    evs = []
-    for cell in cells:
-        if matches := re.findall(r"\n?\w\s\d{2}:\d{2}-\d{2}:\d{2}", cell): #(\n.+\s.+[-].+)?(\n.+\s.+[-].+)?", cell):
-            evs = matches
-    print(evs)
-
-
+    if matches := re.findall(r"\w\s\d{2}:\d{2}-\d{2}:\d{2}", cell): #(\n.+\s.+[-].+)?(\n.+\s.+[-].+)?", cell):
+    
 
 
     ### create a New calendar and add events
