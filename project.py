@@ -12,6 +12,7 @@ import re
 
 
 def main():
+
     abvs = {
         "D": "Doublon",
         "DG": "Doublon Geschäft",
@@ -30,6 +31,7 @@ def main():
         "UG": "Umbau Geschäft",
         "V": "Verkauf"
     }
+    utc = pytz.timezone('Europe/Berlin')
 
 # INPUTS: in_file, out_file, worker_name, alert
 ##### Check arguments
@@ -68,46 +70,41 @@ def main():
     #         f.write(line + "\n") 
     """ Filter results from table """
     header, cells = filter_results(table, worker_name="Paula")
-    
-    # print("Header:", header)
-    # print("Cells:", cells)
-##### Extract and process info
    
-    # start_datetime = datetime(*date, *start_time, tzinfo=utc)
-    # end_datetime = datetime(*date, *end_time, tzinfo=utc)
-    # alert = 1 
-    #Engloba lo anterior entregado por una funcion 
+##### Extract and process info
+    """ Extracting dates """
     dates = []
     for i in range(5, len(header)):
         if extract_dates(header[i]):
             dates.append(extract_dates(header[i]))
         else:
             pass
-    # print("Dates: ", dates)
     
-    #### NEXT: extract description, start_time, end_time
-    # Check how to manage two events in same day cases
     day_events = []
     for cell in cells:
         day_events.append(extract_events(cell))
 
-    print("Day events: ", day_events)
+    # print("Day events: ", day_events)
 
+    events = []
     for i in range(len(dates)):
         if day_events[i] != None:
             for ev in day_events[i]:
+    #### extract name, start_time, end_time
                 legende, times = ev.split(" ")
                 start, end = times.split("-")
                 start_time = tuple(map(int, start.split(":"))) + ((00),)
-                start_datetime = dates[i] + start_time 
+                # start_datetime = datetime(*date, *start_time, tzinfo=utc)
+                start_datetime = datetime(*dates[i], *start_time, tzinfo=utc) 
                 end_time = tuple(map(int, end.split(":"))) + ((00),)
-                end_datetime = dates[i] + end_time
+                end_datetime = datetime(*dates[i], *end_time, tzinfo=utc)
                 event_name = abvs[legende]
                 event_description = "Decathlon"
-                print("Legende: ", legende)
-                print("Start date time: ", start_datetime)
-                print("End date time: ", end_datetime)
-
+                # print("Legende: ", legende)
+                # print("Start date time: ", start_datetime)
+                # print("End date time: ", end_datetime)
+                """ Create event """
+                events.append(create_event(event_name, event_description, start_datetime, end_datetime, alert=5))
 
                 
         #         # print("Parsed date: ", parsed_date)
@@ -117,9 +114,9 @@ def main():
     
     # Manage multiple events per day
     # for e in day_events 
-    events = [
-        create_event(event_name, event_description, start_datetime, end_datetime, alert)
-    ]
+    # events = [
+    #     create_event(event_name, event_description, start_datetime, end_datetime, alert)
+    # ]
 
     # Save to calendar
     create_and_save_calendar(events, out_file)
