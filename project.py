@@ -68,17 +68,10 @@ def main():
     #         f.write(line + "\n") 
 
     header, cells = filter_results(table, worker_name="Paula")
-    print("Header:", header)
+    # print("Header:", header)
     # print("Cells:", cells)
 ##### Extract and process info
-    # Create a Class????
-    # event_name = 'Arbeit' # constant
-    # event_description = 'Verkauf'
-    # utc = pytz.timezone('Europe/Berlin') # constant 
-    # date = (2023, 10, 15)
-    # start_time = (15, 30, 00)
-    # end_time = (17, 30, 00)
-
+   
     # start_datetime = datetime(*date, *start_time, tzinfo=utc)
     # end_datetime = datetime(*date, *end_time, tzinfo=utc)
     # alert = 1 
@@ -89,7 +82,7 @@ def main():
             dates.append(extract_dates(header[i]))
         else:
             pass
-    print(dates)
+    print("Dates: ", dates)
     
     #### NEXT: extract description, start_time, end_time
     # Check how to manage two events in same day cases
@@ -194,7 +187,7 @@ def filter_results(table, worker_name):
 def extract_dates(cell):
     match = ""
     if match := re.findall(r"\d+\.\d+\.\d+", cell):
-        return match
+        return match[0]
     
 
 def extract_events(cell):
