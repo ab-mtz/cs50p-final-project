@@ -50,7 +50,7 @@ def main():
         in_file = sys.argv[0]
         out_file = sys.argv[1]
    
-##### Import from table
+    """ Extract table from pdf """
     try:
         with pdfplumber.open(in_file) as pdf:
             page = pdf.pages[0]
@@ -76,6 +76,7 @@ def main():
     #         line = ""
     #         line = ", ".join([str(cell).replace('\n', ' ') for cell in row])
     #         f.write(line + "\n") 
+
     """ Filter results from table """
     header, cells = filter_results(table, worker_name="Abraham")
    
@@ -87,14 +88,11 @@ def main():
             dates.append(extract_dates(header[i]))
         else:
             pass
-
-    print(dates)
-    
+    """ Extracting events contained per day """
     day_events = []
     for cell in cells:
         day_events.append(extract_events(cell))
 
-    # print("Day events: ", day_events)
     """ Per day: extracting events and creating events """
     events = []
     for i in range(len(dates)):
