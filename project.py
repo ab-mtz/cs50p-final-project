@@ -1,9 +1,5 @@
-# imports
 from icalendar import Calendar, Event, Alarm
 from datetime import datetime, timedelta
-# from uuid import uuid1
-# from pathlib import Path
-# import tabula
 import os, sys
 import pytz
 import pdfplumber
