@@ -85,7 +85,7 @@ def main():
     
     """ Extracting events contained per day """
     day_events = []
-    print(cells)
+    # print(cells)
     for cell in cells:
         day_events.append(extract_events(cell))
     print(day_events)
@@ -145,6 +145,7 @@ def check_arguments(args):
 
 
 def filter_results(table, worker_name):
+    print(table)
     _dates = []
     # name = worker_name
     start_times = []
