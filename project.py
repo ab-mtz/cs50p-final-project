@@ -165,7 +165,7 @@ def filter_results(table, worker_name):
     # Extract values from cell that corresponds to the worker in question
     worker_row = []
     for worker in table:
-        if worker[0] == worker_name:
+        if worker[0].lower() == worker_name.lower():
             worker_row = worker 
     if not worker_row:
         sys.exit("Worker name not found")
