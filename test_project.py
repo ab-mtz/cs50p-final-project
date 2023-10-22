@@ -1,4 +1,4 @@
-from project import check_arguments, extract_dates
+from project import check_arguments, extract_dates, extract_events
 import pytest
 
 
@@ -26,28 +26,7 @@ def test_extract_dates():
     assert result == (2023, 2, 5)
 
 
-    # ,
-    #     "-",
-    #     "05.02.23",
-    #     "Mo",
-    #     "30.01.23",
-    #     "",
-    #     "Di",
-    #     "31.01.23",
-    #     "",
-    #     "Mi",
-    #     "01.02.23",
-    #     "",
-    #     "Do",
-    #     "02.02.23",
-    #     "",
-    #     "Fr",
-    #     "03.02.23",
-    #     "",
-    #     "Sa",
-    #     "04.02.23",
-    #     "",
-    #     "So",
-    #     "05.02.23",
-    #     "",
-    # ]
+def test_extract_events():
+    cell = "IN 10:00-16:15\nMG 16:15-18:00"
+    result = extract_events(cell)
+    assert result == ['IN 10:00-16:15', 'MG 16:15-18:00']
