@@ -40,6 +40,7 @@ def main():
     else:
         in_file = sys.argv[0]
 
+    """ Prompt the user to introduce the worker's name """
     worker_name = input("Name of worker: ")
 
     """ Extract table from pdf """
