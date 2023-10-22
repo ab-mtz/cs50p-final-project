@@ -73,9 +73,8 @@ def main():
 
     """ Filter results from table """
     header, cells = filter_results(table, worker_name)
-    print(cells)
-    ##### Extract and process info
 
+##### Extract and process info
     #  Extracting dates
     dates = []
     for i in range(5, len(header)):
@@ -153,7 +152,6 @@ def check_arguments(args):
 
 def filter_results(table, worker_name):
     """ Take the extracted table from the pdf file and extracts the header of the table and the row corresponding to the specified worker's name """
-    print(table)
     _dates = []
     # name = worker_name
     start_times = []
@@ -202,21 +200,16 @@ def extract_dates(cell):
 
 
 def extract_events(cell):
-    #### NEXT: extract description, start_time, end_time
-
+    """ Extract the event or events contained in a cell as list """
     _omisions = ["abwesend", "frei"]
     if cell in _omisions:
         return None
-    elif match := re.findall(
-        r"\w+\s\d{2}:\d{2}-\d{2}:\d{2}", cell
-    ):  # (\n.+\s.+[-].+)?(\n.+\s.+[-].+)?", cell):
-        return match
-    # print(matches)
-
-    ### create a New calendar and add events
+    elif _match := re.findall(r"\w+\s\d{2}:\d{2}-\d{2}:\d{2}", cell):  
+        return _match
 
 
 def create_event(name, description, start_time, end_time, alert):
+    """ Creates an event object with the information extracted from the table and processed by the other functions """
     event = Event()
     event.add("summary", name)
     event.add("description", description)
@@ -233,6 +226,7 @@ def create_event(name, description, start_time, end_time, alert):
 
 
 def create_and_save_calendar(events, out_file):
+    """ Create a calendar object with the events and stores it as an ics file """
     # init the calendar
     cal = Calendar()
 
