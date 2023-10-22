@@ -73,7 +73,7 @@ def main():
 
     """ Filter results from table """
     header, cells = filter_results(table, worker_name)
-    print(header)
+    
     ##### Extract and process info
     """ Extracting dates """
     dates = []
@@ -88,7 +88,6 @@ def main():
     # print(cells)
     for cell in cells:
         day_events.append(extract_events(cell))
-    print(day_events)
     """ Per day: extracting events and creating events """
     events = []
     for i in range(len(dates)):
