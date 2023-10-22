@@ -48,7 +48,7 @@ def main():
         raise ValueError("Usage: project.py in_file.pdf out_file.ics")
     else:
         in_file = sys.argv[0]
-        out_file = sys.argv[1]
+        # out_file = sys.argv[1]
 
     worker_name = input("Name of worker: ")
    
@@ -116,10 +116,10 @@ def main():
 
     # Save to calendar
     print(dates)
-    st_date = f"{dates[0][2]}/{dates[0][1]}/{dates[0][0]}"
-    end_date = f"{dates[6][2]}/{dates[6][1]}/{dates[6][0]}"
+    st_date = f"{dates[0][2]}-{dates[0][1]}-{dates[0][0]}"
+    end_date = f"{dates[6][2]}-{dates[6][1]}-{dates[6][0]}"
 
-    print(f"{worker_name.lower()}_{st_date}-{end_date}.ics")
+    out_file = f"{worker_name.lower()}_{st_date}_{end_date}.ics"
     create_and_save_calendar(events, out_file)
     print("\n====== The calendar has been successfully created ======")
 
