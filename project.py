@@ -80,15 +80,15 @@ def main():
     for i in range(5, len(header)):
         if extract_dates(header[i]):
             dates.append(extract_dates(header[i]))
-            print(extract_dates(header[i]))
         else:
             pass
-    print(dates)
+    
     """ Extracting events contained per day """
     day_events = []
+    print(cells)
     for cell in cells:
         day_events.append(extract_events(cell))
-
+    print(day_events)
     """ Per day: extracting events and creating events """
     events = []
     for i in range(len(dates)):
