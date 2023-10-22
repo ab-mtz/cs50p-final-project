@@ -130,6 +130,7 @@ def main():
 
     # Save to calendar
     create_and_save_calendar(events, out_file)
+    print("====== The calendar has been successfully created ======")
 
 
 #######################################
@@ -179,7 +180,7 @@ def filter_results(table, worker_name):
             worker_row = worker 
     if not worker_row:
         sys.exit("Worker name not found")
-    # print(worker_row)
+
     # Filter and parse worker_row
     cells = []
     for cell in worker_row:
