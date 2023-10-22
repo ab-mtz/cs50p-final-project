@@ -80,6 +80,7 @@ def main():
     for i in range(5, len(header)):
         if extract_dates(header[i]):
             dates.append(extract_dates(header[i]))
+            print(extract_dates(header[i]))
         else:
             pass
     print(dates)
@@ -187,7 +188,6 @@ def extract_dates(cell):
         # Date comes in format DD.MM.YY
         day, month, year = map(int, _match[0].split("."))
         year += 2000
-
         return year, month, day
 
 
