@@ -152,6 +152,7 @@ def check_arguments(args):
 
 
 def filter_results(table, worker_name):
+    """ Take the extracted table from the pdf file and extracts the header of the table and the row corresponding to the specified worker's name """
     print(table)
     _dates = []
     # name = worker_name
@@ -191,6 +192,7 @@ def filter_results(table, worker_name):
 
 
 def extract_dates(cell):
+    """ Search trough regex the matching date formatted information (DD.MM:YY) and returns the values YYYY, MM and DD as a tupple"""
     _match = ""
     if _match := re.findall(r"\d+\.\d+\.\d+", cell):
         # Date comes in format DD.MM.YY
