@@ -26,7 +26,7 @@ abvs = {
 utc = pytz.timezone("Europe/Berlin")
 event_description = "WORK"
 
-NEXT::: Description and Video
+# NEXT::: Description and Video
 
 def main():
     # INPUTS: in_file, out_file, worker_name, alert
@@ -126,7 +126,7 @@ def main():
 
     # Save to calendar
     create_and_save_calendar(events, out_file)
-    print("\n=========== The calendar has been successfully created ===========")
+    print(f"\n=========== The calendar has been successfully created and saved as '{out_file}' ===========")
 
 
 #######################################
