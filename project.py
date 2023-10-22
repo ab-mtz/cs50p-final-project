@@ -130,7 +130,6 @@ def check_arguments(args):
         args.pop(0)
     # Check extensions from arg 1 
         try:
-            # extensions = [file_name.split(".")[-1] for file_name in args]
             _, extension = args[0].split(".")
 
             if extension in valid_extensions:
