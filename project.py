@@ -214,7 +214,7 @@ def create_event(name, description, start_time, end_time, alert):
     return event
 
 
-def create_and_save_calendar(events, out_file):
+def create_and_save_calendar(events, out_file, worker_name):
     # init the calendar
     cal = Calendar()
 
@@ -225,7 +225,7 @@ def create_and_save_calendar(events, out_file):
     for event in events:
         cal.add_component(event)
     # Store to file
-    # out_file = f"{worker_name }.ics"
+    print(f"{worker_name}_{dates[0].replace('.', '/')}-{dates[6].replace('.', '/')}.ics")
     with open(out_file, 'wb') as file:
         file.write(cal.to_ical())
 
