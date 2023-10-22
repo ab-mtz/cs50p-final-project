@@ -31,16 +31,16 @@ event_description = "Decathlon"
 
 def main():
     # INPUTS: in_file, out_file, worker_name, alert
-    """Check arguments"""
+    # Check arguments
     if not check_arguments(sys.argv):
         raise ValueError("Usage: project.py input_file.pdf")
     else:
         in_file = sys.argv[0]
 
-    """ Prompt the user to introduce the worker's name """
+    # Prompt the user to introduce the worker's name
     worker_name = input("Name of worker: ")
 
-    """ Extract table from pdf """
+    # Extract table from pdf
     try:
         with pdfplumber.open(in_file) as pdf:
             page = pdf.pages[0]
@@ -48,9 +48,10 @@ def main():
     except:
         print("PDF file not found")
 
-    # Check if the pdf structure corresponds to the expected one
+    ##### Check if the pdf structure corresponds to the expected one
     # presumably there are 25 cells per row in this file's structure
-    """ Check the correct lenght of rows from pdf's table """
+
+    #  Check the correct lenght of rows from pdf's table
     for row in table:
         if len(row) != 25:
             sys.exit(
@@ -74,37 +75,41 @@ def main():
     header, cells = filter_results(table, worker_name)
     print(cells)
     ##### Extract and process info
-    """ Extracting dates """
+
+    #  Extracting dates
     dates = []
     for i in range(5, len(header)):
         if extract_dates(header[i]):
             dates.append(extract_dates(header[i]))
         else:
             pass
-    
-    """ Extracting events contained per day """
+
+    #  Extracting events contained per day
     day_events = []
-    # print(cells)
     for cell in cells:
         day_events.append(extract_events(cell))
 
-    """ Per day: extracting events and creating events """
+    #  Per day: extracting events and creating events
     events = []
     for i in range(len(dates)):
         if day_events[i] != None:
             for ev in day_events[i]:
                 #### extract name, start_time, end_time
                 legende, times = ev.split(" ")
-
+                # split times
                 start, end = times.split("-")
+                # convert the time string to tuple and add the seconds field
                 start_time = tuple(map(int, start.split(":"))) + ((00),)
-                start_datetime = datetime(*dates[i], *start_time, tzinfo=utc)  #
-
+                # create a datetime obj to store the start of the event
+                start_datetime = datetime(*dates[i], *start_time, tzinfo=utc)
+                # convert the time string to tuple and add the seconds field
                 end_time = tuple(map(int, end.split(":"))) + ((00),)
-                end_datetime = datetime(*dates[i], *end_time, tzinfo=utc)  #
+                # create a datetime obj to store the end of the event
+                end_datetime = datetime(*dates[i], *end_time, tzinfo=utc)
+                # Assing the event name from the legende
                 event_name = abvs[legende]  #
 
-                """ Create event """
+                ##### Create event
                 events.append(
                     create_event(
                         event_name,
@@ -114,20 +119,23 @@ def main():
                         alert=5,
                     )
                 )
-
-    # Save to calendar
+    # build dates
     st_date = f"{dates[0][2]}-{dates[0][1]}-{dates[0][0]}"
     end_date = f"{dates[6][2]}-{dates[6][1]}-{dates[6][0]}"
 
+    ### Create output file name
     out_file = f"{worker_name.lower()}_{st_date}_{end_date}.ics"
+
+    # Save to calendar
     create_and_save_calendar(events, out_file)
-    print("\n====== The calendar has been successfully created ======")
+    print("\n=========== The calendar has been successfully created ===========")
 
 
 #######################################
 
 
 def check_arguments(args):
+    """Check that a command-line argument is given and it's the name of a file wich extension is pdf"""
     valid_extensions = ["pdf", "PDF"]
     if len(args) == 2:
         args.pop(0)
