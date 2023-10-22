@@ -152,7 +152,6 @@ def filter_results(table, worker_name):
     # This loops is used to see wich indexes contains the relevant info, so we can filter it later
     # for count, cell in enumerate(header):
     #     print(count, cell)
-    print(header)
 
     relevant_indexes = [5, 8, 11, 14, 17, 20, 23]
     # store content of relevant indexes in header to a list of tuples
