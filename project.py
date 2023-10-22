@@ -170,13 +170,6 @@ def filter_results(table, worker_name):
         tup_res = tuple(map(int, header[relevant_indexes[_]].split(".")))
         dates.append(tup_res)
     
-    # This method could work as well, we would need to add some filter with regex to get the relevant info
-    # res =[]
-    # for cell in header:
-    #     if cell:
-    #         res.append(cell)
-    # print(res)
-    
     table.pop(0) # Remove the second row wich is useless
 
     # Extract values from cell that corresponds to the worker in question
