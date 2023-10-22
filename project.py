@@ -11,12 +11,9 @@ import re
 
 """ NEXT: """
 # Arguments: add name arg and alarm arg
-# Refactorize """per day"""
-# wite test_ :\
-# Correct format,
+# write test_ :\
 # Add comments to documentation
 # Write instructions to google calendar
-# Think how to manage all calendars (from workers) in one calendar
 
 abvs = {
     "D": "Doublon",
