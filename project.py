@@ -5,10 +5,7 @@ import pytz
 import pdfplumber
 import re
 
-# Arguments: add name arg and alarm arg
-# write test_ :\
 # Add comments to documentation
-# Write instructions to google calendar
 
 abvs = {
     "D": "Doublon",
