@@ -15,5 +15,7 @@ def test_check_arguments():
     result3 = check_arguments(args2)
     assert result3 == False    
     
-def test_filter_results():
-    with 
+def test_extract_dates():
+    header = [
+        
+    ]
