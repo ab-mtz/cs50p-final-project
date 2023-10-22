@@ -1,4 +1,4 @@
-from project import check_arguments
+from project import check_arguments, extract_dates
 import pytest
 
 
@@ -17,32 +17,37 @@ def test_check_arguments():
 
 
 def test_extract_dates():
-    header = [
-        "Zeitraum",
-        "30.01.23",
-        "-",
-        "05.02.23",
-        "Mo",
-        "30.01.23",
-        "",
-        "Di",
-        "31.01.23",
-        "",
-        "Mi",
-        "01.02.23",
-        "",
-        "Do",
-        "02.02.23",
-        "",
-        "Fr",
-        "03.02.23",
-        "",
-        "Sa",
-        "04.02.23",
-        "",
-        "So",
-        "05.02.23",
-        "",
-    ]
-    result = extract_dates(header)
+    cell = "30.01.23"
+    result = extract_dates(cell)
     assert result == (2023, 1, 30)
+    
+    cell = "05.02.23"
+    result = extract_dates(cell)
+    assert result == (2023, 2, 5)
+
+
+    # ,
+    #     "-",
+    #     "05.02.23",
+    #     "Mo",
+    #     "30.01.23",
+    #     "",
+    #     "Di",
+    #     "31.01.23",
+    #     "",
+    #     "Mi",
+    #     "01.02.23",
+    #     "",
+    #     "Do",
+    #     "02.02.23",
+    #     "",
+    #     "Fr",
+    #     "03.02.23",
+    #     "",
+    #     "Sa",
+    #     "04.02.23",
+    #     "",
+    #     "So",
+    #     "05.02.23",
+    #     "",
+    # ]
