@@ -5,7 +5,6 @@ import pytz
 import pdfplumber
 import re
 
-
 abvs = {
     "D": "Doublon",
     "DG": "Doublon Geschäft",
@@ -27,6 +26,7 @@ abvs = {
 utc = pytz.timezone("Europe/Berlin")
 event_description = "WORK"
 
+NEXT::: Description and Video
 
 def main():
     # INPUTS: in_file, out_file, worker_name, alert
