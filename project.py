@@ -5,7 +5,6 @@ import pytz
 import pdfplumber
 import re
 
-# Add comments to documentation
 
 abvs = {
     "D": "Doublon",
@@ -26,7 +25,7 @@ abvs = {
     "V": "Verkauf",
 }
 utc = pytz.timezone("Europe/Berlin")
-event_description = "Decathlon"
+event_description = "WORK"
 
 
 def main():
