@@ -52,6 +52,7 @@ def main():
 
     # Check if the pdf structure corresponds to the expected one
     # presumably there are 25 cells per row in this file's structure
+    """ Check the correct lenght of rows from pdf's table """
     for row in table:
         if len(row) != 25:
             sys.exit(
