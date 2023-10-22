@@ -115,9 +115,11 @@ def main():
                 events.append(create_event(event_name, event_description, start_datetime, end_datetime, alert=5))
 
     # Save to calendar
-    st_date = dates[0]
-    end_date = dates[6]
-    print(f"{worker_name}_{st_date.replace('.', '/')}-{end_date.replace('.', '/')}.ics")
+    print(dates)
+    st_date = f"{dates[0][2]}/{dates[0][1]}/{dates[0][0]}"
+    end_date = f"{dates[6][2]}/{dates[6][1]}/{dates[6][0]}"
+
+    print(f"{worker_name}_{st_date}-{end_date}.ics")
     create_and_save_calendar(events, out_file)
     print("\n====== The calendar has been successfully created ======")
 
