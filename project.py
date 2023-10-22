@@ -18,10 +18,7 @@ import re
 # Write instructions to google calendar 
 # Think how to manage all calendars (from workers) in one calendar
 
-
-def main():
-
-    abvs = {
+abvs = {
         "D": "Doublon",
         "DG": "Doublon Geschäft",
         "I": "Inventur",
@@ -39,7 +36,11 @@ def main():
         "UG": "Umbau Geschäft",
         "V": "Verkauf"
     }
-    utc = pytz.timezone('Europe/Berlin')
+utc = pytz.timezone('Europe/Berlin')
+
+def main():
+
+    
 
 # INPUTS: in_file, out_file, worker_name, alert
 ##### Check arguments
@@ -72,7 +73,7 @@ def main():
     #     print(line +"\n")
     #     print(len(row))
 
-    # Write results into a document to register and analize it for the next steps
+###### Write results into a document to register and analize it for the next steps
     # with open("table_extract.txt", "w") as f:
     #     for row in table:
     #         line = ""
@@ -116,21 +117,10 @@ def main():
                 """ Create event """
                 events.append(create_event(event_name, event_description, start_datetime, end_datetime, alert=5))
 
-                
-        #         # print("Parsed date: ", parsed_date)
-        #         # start_datetime = date.
-
-        #     print(event)
-    
-    # Manage multiple events per day
-    # for e in day_events 
-    # events = [
-    #     create_event(event_name, event_description, start_datetime, end_datetime, alert)
-    # ]
 
     # Save to calendar
     create_and_save_calendar(events, out_file)
-    print("====== The calendar has been successfully created ======")
+    print("\n====== The calendar has been successfully created ======")
 
 
 #######################################
