@@ -37,11 +37,10 @@ abvs = {
         "V": "Verkauf"
     }
 utc = pytz.timezone('Europe/Berlin')
+event_description = "Decathlon"
+
 
 def main():
-
-    
-
 # INPUTS: in_file, out_file, worker_name, alert
 ##### Check arguments
 
@@ -103,17 +102,15 @@ def main():
             for ev in day_events[i]:
     #### extract name, start_time, end_time
                 legende, times = ev.split(" ")
+
                 start, end = times.split("-")
                 start_time = tuple(map(int, start.split(":"))) + ((00),)
-                # start_datetime = datetime(*date, *start_time, tzinfo=utc)
-                start_datetime = datetime(*dates[i], *start_time, tzinfo=utc) 
+                start_datetime = datetime(*dates[i], *start_time, tzinfo=utc) #
+                
                 end_time = tuple(map(int, end.split(":"))) + ((00),)
-                end_datetime = datetime(*dates[i], *end_time, tzinfo=utc)
-                event_name = abvs[legende]
-                event_description = "Decathlon"
-                # print("Legende: ", legende)
-                # print("Start date time: ", start_datetime)
-                # print("End date time: ", end_datetime)
+                end_datetime = datetime(*dates[i], *end_time, tzinfo=utc) #
+                event_name = abvs[legende] #
+               
                 """ Create event """
                 events.append(create_event(event_name, event_description, start_datetime, end_datetime, alert=5))
 
@@ -142,7 +139,7 @@ def check_arguments(args):
 
 def filter_results(table, worker_name):
     
-    dates = []
+    _dates = []
     # name = worker_name
     start_times = []
     end_times = []
@@ -158,7 +155,7 @@ def filter_results(table, worker_name):
     # store content of relevant indexes in header to a list of tuples
     for _ in range(len(relevant_indexes)):
         tup_res = tuple(map(int, header[relevant_indexes[_]].split(".")))
-        dates.append(tup_res)
+        _dates.append(tup_res)
     
     table.pop(0) # Remove the second row wich is useless
 
@@ -228,7 +225,7 @@ def create_and_save_calendar(events, out_file):
     for event in events:
         cal.add_component(event)
     # Store to file
-    
+    # out_file = f"{worker_name }.ics"
     with open(out_file, 'wb') as file:
         file.write(cal.to_ical())
 
