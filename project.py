@@ -115,7 +115,8 @@ def main():
                 events.append(create_event(event_name, event_description, start_datetime, end_datetime, alert=5))
 
     # Save to calendar
-    create_and_save_calendar(events, out_file, worker_name)
+    print(f"{worker_name}_{dates[0].replace('.', '/')}-{dates[6].replace('.', '/')}.ics")
+    create_and_save_calendar(events, out_file)
     print("\n====== The calendar has been successfully created ======")
 
 
@@ -225,7 +226,6 @@ def create_and_save_calendar(events, out_file, worker_name):
     for event in events:
         cal.add_component(event)
     # Store to file
-    print(f"{worker_name}_{dates[0].replace('.', '/')}-{dates[6].replace('.', '/')}.ics")
     with open(out_file, 'wb') as file:
         file.write(cal.to_ical())
 
