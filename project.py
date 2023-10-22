@@ -42,8 +42,7 @@ event_description = "Decathlon"
 
 def main():
 # INPUTS: in_file, out_file, worker_name, alert
-##### Check arguments
-
+    """ Check arguments """
     if not check_arguments(sys.argv):
         raise ValueError("Usage: project.py input_file.pdf")
     else:
@@ -63,7 +62,7 @@ def main():
 # presumably there are 25 cells per row in this file's structure 
     for row in table:
         if len(row) != 25:
-            sys.exit("The pdf file can't be processed")
+            sys.exit("The pdf file can't be processed, make sure to use the correct pdf file")
 ##### print rows
     # for row in table:
     #     line = ""
