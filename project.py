@@ -66,7 +66,7 @@ def main():
     for row in table:
         if len(row) != 25:
             sys.exit("The pdf file can't be processed")
-    # print rows
+##### print rows
     # for row in table:
     #     line = ""
     #     line = ", ".join([str(cell).replace('\n', ' ') for cell in row])
@@ -116,7 +116,6 @@ def main():
                 # print("End date time: ", end_datetime)
                 """ Create event """
                 events.append(create_event(event_name, event_description, start_datetime, end_datetime, alert=5))
-
 
     # Save to calendar
     create_and_save_calendar(events, out_file)
