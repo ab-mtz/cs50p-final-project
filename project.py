@@ -119,7 +119,7 @@ def main():
     st_date = f"{dates[0][2]}/{dates[0][1]}/{dates[0][0]}"
     end_date = f"{dates[6][2]}/{dates[6][1]}/{dates[6][0]}"
 
-    print(f"{worker_name}_{st_date}-{end_date}.ics")
+    print(f"{worker_name.lower()}_{st_date}-{end_date}.ics")
     create_and_save_calendar(events, out_file)
     print("\n====== The calendar has been successfully created ======")
 
@@ -219,7 +219,7 @@ def create_event(name, description, start_time, end_time, alert):
     return event
 
 
-def create_and_save_calendar(events, out_file, worker_name):
+def create_and_save_calendar(events, out_file):
     # init the calendar
     cal = Calendar()
 
