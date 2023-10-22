@@ -45,10 +45,12 @@ def main():
 ##### Check arguments
 
     if not check_arguments(sys.argv):
-        raise ValueError("Usage: project.py in_file.pdf out_file.ics alert(int)")
+        raise ValueError("Usage: project.py in_file.pdf out_file.ics")
     else:
         in_file = sys.argv[0]
         out_file = sys.argv[1]
+
+    worker_name = input("Name of worker: ")
    
     """ Extract table from pdf """
     try:
@@ -78,7 +80,7 @@ def main():
     #         f.write(line + "\n") 
 
     """ Filter results from table """
-    header, cells = filter_results(table, worker_name="Abraham")
+    header, cells = filter_results(table, worker_name)
    
 ##### Extract and process info
     """ Extracting dates """
@@ -149,15 +151,7 @@ def check_arguments(args):
 
 
 def filter_results(table, worker_name):
-    ### Values to extract:
-    # event_name = 'Arbeit' # constant
-    # utc = pytz.timezone('Europe/Berlin') # constant 
-    # date = (2023, 10, 15)
-    # start_time = (15, 30, 00)
-    # end_time = (17, 30, 00)
-    # event_description = 'Verkauf'
-    # start_datetime = datetime(*date, *start_time, tzinfo=utc)
-    # end_datetime = datetime(*date, *end_time, tzinfo=utc)
+    
     dates = []
     # name = worker_name
     start_times = []
