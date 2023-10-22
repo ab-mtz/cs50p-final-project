@@ -114,7 +114,6 @@ def main():
                 events.append(create_event(event_name, event_description, start_datetime, end_datetime, alert=5))
 
     # Save to calendar
-    print(dates)
     st_date = f"{dates[0][2]}-{dates[0][1]}-{dates[0][0]}"
     end_date = f"{dates[6][2]}-{dates[6][1]}-{dates[6][0]}"
 
@@ -133,7 +132,7 @@ def check_arguments(args):
         try:
             # extensions = [file_name.split(".")[-1] for file_name in args]
             _, extension = args[0].split(".")
-            
+
             if extension in valid_extensions:
                 return True
         except: 
