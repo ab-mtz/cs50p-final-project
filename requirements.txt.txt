@@ -1,5 +1,0 @@
-iCalender
-regex
-camelot
-tabulapy (specific requirements)
-
