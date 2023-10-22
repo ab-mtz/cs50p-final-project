@@ -7,6 +7,11 @@ def test_check_arguments():
     result = check_arguments(args)
     assert  result == True
 
-    args = ["project.py", "in_file.txt"]
-    result = check_arguments(args)
-    assert result == False    
+    args2 = ["project.py", "in_file.txt"]
+    result2 = check_arguments(args2)
+    assert result2 == None    
+
+    args3 = ["project.py", "in_file.pdf", "extra_argument.txt"]
+    result3 = check_arguments(args2)
+    assert result3 == False    
+    
