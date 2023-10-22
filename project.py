@@ -127,15 +127,13 @@ def main():
 
 def check_arguments(args):
     valid_extensions = ["pdf", "PDF"]
-
     if len(args) == 2:
         args.pop(0)
     # Check extensions from arg 1 
         try:
             # extensions = [file_name.split(".")[-1] for file_name in args]
-            _, extension = args.split(".")
-            print(_, extension)
-
+            _, extension = args[0].split(".")
+            
             if extension in valid_extensions:
                 return True
         except: 
