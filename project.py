@@ -45,10 +45,9 @@ def main():
 ##### Check arguments
 
     if not check_arguments(sys.argv):
-        raise ValueError("Usage: project.py in_file.pdf out_file.ics")
+        raise ValueError("Usage: project.py input_file.pdf")
     else:
         in_file = sys.argv[0]
-        # out_file = sys.argv[1]
 
     worker_name = input("Name of worker: ")
    
@@ -127,15 +126,18 @@ def main():
 #######################################
 
 def check_arguments(args):
-    valid_extensions = ["pdf", "ics"]
+    valid_extensions = ["pdf", "PDF"]
 
-    if len(args) == 3:
+    if len(args) == 2:
         args.pop(0)
-    # Check extensions from args 1 and 2
+    # Check extensions from arg 1 
         try:
-            extensions = [file_name.split(".")[-1] for file_name in args]
-            if extensions == valid_extensions:
-                return True, extensions
+            # extensions = [file_name.split(".")[-1] for file_name in args]
+            _, extension = args.split(".")
+            print(_, extension)
+
+            if extension in valid_extensions:
+                return True
         except: 
             return False
     else:
