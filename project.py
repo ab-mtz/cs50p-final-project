@@ -1,15 +1,14 @@
 # imports
-from icalendar import Calendar, Event, vCalAddress, vText, Alarm
+from icalendar import Calendar, Event, Alarm
 from datetime import datetime, timedelta
-from uuid import uuid1
-from pathlib import Path
-import tabula
+# from uuid import uuid1
+# from pathlib import Path
+# import tabula
 import os, sys
 import pytz
 import pdfplumber
 import re
 
-""" NEXT: """
 # Arguments: add name arg and alarm arg
 # write test_ :\
 # Add comments to documentation
