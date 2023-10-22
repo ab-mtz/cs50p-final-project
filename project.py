@@ -82,6 +82,7 @@ def main():
             dates.append(extract_dates(header[i]))
         else:
             pass
+    print(dates)
     """ Extracting events contained per day """
     day_events = []
     for cell in cells:
