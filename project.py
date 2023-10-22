@@ -115,7 +115,7 @@ def main():
                 events.append(create_event(event_name, event_description, start_datetime, end_datetime, alert=5))
 
     # Save to calendar
-    create_and_save_calendar(events, out_file)
+    create_and_save_calendar(events, out_file, worker_name)
     print("\n====== The calendar has been successfully created ======")
 
 
