@@ -41,6 +41,7 @@ def main():
         in_file = sys.argv[0]
 
     worker_name = input("Name of worker: ")
+    print(sys.argv)
 
     """ Extract table from pdf """
     try:
