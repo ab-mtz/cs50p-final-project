@@ -41,7 +41,6 @@ def main():
         in_file = sys.argv[0]
 
     worker_name = input("Name of worker: ")
-    print(sys.argv)
 
     """ Extract table from pdf """
     try:
@@ -74,7 +73,7 @@ def main():
 
     """ Filter results from table """
     header, cells = filter_results(table, worker_name)
-
+    print(header)
     ##### Extract and process info
     """ Extracting dates """
     dates = []
