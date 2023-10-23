@@ -15,19 +15,15 @@ This Python program is designed to simplify the process of adding your work shif
 
 ### Instructions
 
-1. Clone or download this repository to your local machine.
-
-2. Navigate to the project directory in your terminal.
-
-3. Run the program with the following command, replacing `input_file.pdf` with your PDF file:
+1. Run the program with the following command, replacing `input_file.pdf` with your PDF file:
 
     python project.py input_file.pdf
 
-4. You will be prompted to enter your name. This is used to generate an ICS file with your work shifts.
+2. You will be prompted to enter your name. This is used to generate an ICS file with your work shifts.
 
-5. The program will process the PDF file, extract your work schedule, and create an ICS file.
+3. The program will process the PDF file, extract your work schedule, and create an ICS file.
 
-6. Import the generated ICS file into your preferred calendar application.
+4. Import the generated ICS file into your preferred calendar application.
 
 ## Notes
 
