@@ -1,5 +1,9 @@
 # PDF to ICS - Worktime Planning
 
+#### Video Demo:  <https://youtu.be/jVrrOveIxBg>
+
+#### Description:
+
 Convert a PDF worktime plan into an ICS (iCalendar) file for easy integration with calendar apps.
 
 ## Overview
