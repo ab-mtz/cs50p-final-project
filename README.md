@@ -1,17 +1,49 @@
-# PDF to ICS - Worktime planning
-    #### Video Demo:  <URL HERE>
-    #### Description:
-    
-    Some jobs require differents shifts that are different every week, that gives possibility to people to mistake a shift in a certain day.
-    One of the easiest tools that we have availible are cellphones where a Calendar app is always installed. 
+# PDF to ICS - Worktime Planning
 
-    In my current job(10.2023) we get a weekley worktime plan from the system, wich only can be stored as a pdf and/or printed. Thant makes the task of registring our shifts manually in our cellphones tedious. 
-    The generated pdf have an specific structure given from the system, that means that this program will only work for that specific pdf structure and not for other documents. 
+Convert a PDF worktime plan into an ICS (iCalendar) file for easy integration with calendar apps.
 
-    The program runs with an argument wich indicates the pdf file name to use. If the extension is incorrect or the file name doesn't exist will return an Error and inform the user. 
-    Prompts the user for the worker name so the program return an ics file corresponding to the sifts of the indicated worker. 
-    This program reads the pdf and extract the table that contains the dates, worker names and the respectives shifts, using the library pdfplumber. 
-    Some days contain more than one event based in worktimes for different areas in the same company, these area is indicated with a code that comes before the time frame of the task. So the program has to extract and create an event for each one of them and add to the name event the description of the corresponding code. 
+## Overview
+
+This Python program is designed to simplify the process of adding your work shifts to your calendar application. It works by extracting data from a PDF file containing your work schedule and creating an ICS (iCalendar) file that you can import into most calendar apps, such as Google Calendar, Apple Calendar, or Outlook.
+
+## Usage
+
+### Prerequisites
+
+- Python 3
+- Required Python libraries (install with `pip install pdfplumber icalendar`)
+
+### Instructions
+
+1. Clone or download this repository to your local machine.
+
+2. Navigate to the project directory in your terminal.
+
+3. Run the program with the following command, replacing `input_file.pdf` with your PDF file:
+
+4. You will be prompted to enter your name. This is used to generate an ICS file with your work shifts.
+
+5. The program will process the PDF file, extract your work schedule, and create an ICS file.
+
+6. Import the generated ICS file into your preferred calendar application.
+
+## Notes
+
+- The program is designed to work with specific PDF file structures. Make sure you use the correct PDF file format.
+
+- The program includes a predefined list of shift codes and their corresponding descriptions. You can customize this list in the code to match your specific needs.
+
+## Example
+
+- An example ICS file is named as `{your_name}_start_date_end_date.ics`.
+
+## Author
+
+- [Your Name]
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
     
 
