@@ -20,6 +20,7 @@ This Python program is designed to simplify the process of adding your work shif
 2. Navigate to the project directory in your terminal.
 
 3. Run the program with the following command, replacing `input_file.pdf` with your PDF file:
+
     python project.py input_file.pdf
 
 4. You will be prompted to enter your name. This is used to generate an ICS file with your work shifts.
