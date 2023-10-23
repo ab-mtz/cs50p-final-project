@@ -39,11 +39,9 @@ This Python program is designed to simplify the process of adding your work shif
 
 ## Author
 
-- [Your Name]
+- Abraham Martinez - bmtzs@me.com
 
-## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
     
 
