@@ -121,11 +121,11 @@ def main():
                     )
                 )
     # build dates
-    st_date = f"{dates[0][2]}-{dates[0][1]}-{dates[0][0]}"
-    end_date = f"{dates[6][2]}-{dates[6][1]}-{dates[6][0]}"
+    st_date = f"{dates[0][0]}-{dates[0][1]}-{dates[0][2]}"
+    end_date = f"{dates[6][0]}-{dates[6][1]}-{dates[6][2]}"
 
     ### Create output file name
-    out_file = f"{worker_name.lower()}_{st_date}_{end_date}.ics"
+    out_file = f"{end_date}_{st_date}_{worker_name.capitalize()}.ics"
 
     # Save to calendar
     create_and_save_calendar(events, out_file)
