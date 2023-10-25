@@ -86,7 +86,8 @@ def main():
     day_events = []
     for cell in cells:
         day_events.append(extract_events(cell))
-    if not day_events:
+    
+    if not any(day_events):
         sys.exit("----------- There are not events for this worker -----------")
 
     #  Per day: extracting events and creating events
@@ -208,6 +209,9 @@ def extract_events(cell):
     elif _match := re.findall(r"\w+\s\d{2}:\d{2}-\d{2}:\d{2}", cell):  
         return _match
 
+
+# def all_none(day_events):
+#    return not any(day_events)
 
 def create_event(name, description, start_time, end_time, alert):
     """ Creates an event object with the information extracted from the table and processed by the other functions """
