@@ -37,7 +37,7 @@ def main():
         in_file = sys.argv[0]
 
     # Prompt the user to introduce the worker's name
-    worker_name = input("Name of worker: ")
+    worker_name = input("Name of worker: ").strip()
 
     # Extract table from pdf
     try:
