@@ -86,6 +86,8 @@ def main():
     day_events = []
     for cell in cells:
         day_events.append(extract_events(cell))
+    if not day_events:
+        sys.exit("----------- There are not events for this workers -----------")
 
     #  Per day: extracting events and creating events
     events = []
