@@ -38,7 +38,11 @@ def main():
 
     # Prompt the user to introduce the worker's name
     worker_name = input("Name of worker: ").strip()
-
+    alert = input("How many minutes before do you want to be alerted? ")
+    try:
+        alert = int(alert)
+    except:
+        raise ValueError("Incorrect value for alert")
     # Extract table from pdf
     try:
         with pdfplumber.open(in_file) as pdf:
@@ -117,7 +121,7 @@ def main():
                         event_description,
                         start_datetime,
                         end_datetime,
-                        alert=5,
+                        alert,
                     )
                 )
     # build dates
