@@ -38,11 +38,13 @@ def main():
 
     # Prompt the user to introduce the worker's name
     worker_name = input("Name of worker: ").strip()
-    alert = input("How many minutes before do you want to be alerted? ")
+    alert = input("How many minutes before do you want to be alerted?\n(For no alert type: 0)\nAlert: ")
     try:
         alert = int(alert)
+        if alert > 120 or alert < 0:
+            raise
     except:
-        raise ValueError("Incorrect value for alert")
+        sys.exit("!-!-!- ERROR: The alert must be writen in positive numbers. Max 120 minutes.  -!-!-!")
     # Extract table from pdf
     try:
         with pdfplumber.open(in_file) as pdf:
