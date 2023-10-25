@@ -126,6 +126,7 @@ def main():
                         alert,
                     )
                 )
+                alert = 5
     # build dates
     st_date = f"{dates[0][0]}-{dates[0][1]}-{dates[0][2]}"
     end_date = f"{dates[6][0]}-{dates[6][1]}-{dates[6][2]}"
