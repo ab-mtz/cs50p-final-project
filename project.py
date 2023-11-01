@@ -5,6 +5,7 @@ import pytz
 import pdfplumber
 import re
 
+# Constants and Configuration
 abvs = {
     "D": "Doublon",
     "DG": "Doublon Geschäft",
@@ -29,12 +30,12 @@ event_description = "WORK"
 # NEXT::: Description and Video
 
 def main():
-    # INPUTS: in_file, out_file, worker_name, alert
+    in_file = validate_input()
     # Check arguments
-    if not check_arguments(sys.argv):
-        raise ValueError("Usage: project.py input_file.pdf")
-    else:
-        in_file = sys.argv[0]
+    # if not check_arguments(sys.argv):
+    #     raise ValueError("Usage: project.py input_file.pdf")
+    # else:
+    #     in_file = sys.argv[0]
 
     # Prompt the user to introduce the worker's name
     worker_name = input("Name of worker: ").strip()
@@ -127,6 +128,21 @@ def main():
 
 
 #######################################
+def validate_input():
+    valid_extensions = ["pdf", "PDF"]
+    args = sys.argv
+    if len(args) == 2:
+        args.pop(0)
+        # Check extensions from arg 1
+        try:
+            _, extension = args[0].split(".")
+
+            if extension in valid_extensions:
+                return sys.argv[0]
+        except:
+            raise ValueError("Invalid input")
+    else:
+        raise ValueError("Invalid input")
 
 
 def check_arguments(args):
