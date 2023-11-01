@@ -62,21 +62,8 @@ def main():
             sys.exit(
                 "The pdf file can't be processed, make sure to use the correct pdf file"
             )
-    ##### print rows
-    # for row in table:
-    #     line = ""
-    #     line = ", ".join([str(cell).replace('\n', ' ') for cell in row])
-    #     print(line +"\n")
-    #     print(len(row))
 
-    ###### Write results into a document to register and analize it for the next steps
-    # with open("table_extract.txt", "w") as f:
-    #     for row in table:
-    #         line = ""
-    #         line = ", ".join([str(cell).replace('\n', ' ') for cell in row])
-    #         f.write(line + "\n")
-
-    """ Filter results from table """
+    # Filter results from table 
     header, cells = filter_results(table, worker_name)
 
 ##### Extract and process info
