@@ -9,6 +9,7 @@ import re
 abvs = {
     "AB": "AB",
     "AB-G": "AB-G",
+    "BG": "Betriebsrat Geschäft",
     "D": "Doublon",
     "DG": "Doublon Geschäft",
     "I": "Inventur",
@@ -21,6 +22,7 @@ abvs = {
     "MG": "Mission Geschäft",
     "P": "Permanenz",
     "PG": "Permanenz Geschäft",
+    "S": "Schulung,"
     "TL": "TL",
     "U": "Umbau",
     "UG": "Umbau Geschäft",
