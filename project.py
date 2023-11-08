@@ -22,7 +22,7 @@ abvs = {
     "MG": "Mission Geschäft",
     "P": "Permanenz",
     "PG": "Permanenz Geschäft",
-    "S": "Schulung,"
+    "S": "Schulung",
     "TL": "TL",
     "U": "Umbau",
     "UG": "Umbau Geschäft",
@@ -106,25 +106,27 @@ def main():
                 # create a datetime obj to store the end of the event
                 end_datetime = datetime(*dates[i], *end_time, tzinfo=utc)
                 # Assing the event name from the legende
-                event_name = abvs[legende]  #
+                
+                if legende != "Pause":
+                    event_name = abvs[legende]  #
 
-                ##### Create event
-                events.append(
-                    create_event(
-                        event_name,
-                        event_description,
-                        start_datetime,
-                        end_datetime,
-                        alert,
+                    ##### Create event
+                    events.append(
+                        create_event(
+                            event_name,
+                            event_description,
+                            start_datetime,
+                            end_datetime,
+                            alert,
+                        )
                     )
-                )
-                alert = 5
+                    alert = 5
     # build dates
     st_date = f"{dates[0][0]}-{dates[0][1]}-{dates[0][2]}"
     end_date = f"{dates[6][0]}-{dates[6][1]}-{dates[6][2]}"
 
     ### Create output file name
-    out_file = f"/Outputs/{st_date}_{end_date}_{worker_name.capitalize()}.ics"
+    out_file = f"{st_date}_{end_date}_{worker_name.capitalize()}.ics"
 
     # Save to calendar
     create_and_save_calendar(events, out_file)
