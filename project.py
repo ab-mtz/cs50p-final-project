@@ -7,6 +7,8 @@ import re
 
 # Constants and Configuration
 abvs = {
+    "AB": "AB",
+    "AB-G": "AB-G",
     "D": "Doublon",
     "DG": "Doublon Geschäft",
     "I": "Inventur",
@@ -120,7 +122,7 @@ def main():
     end_date = f"{dates[6][0]}-{dates[6][1]}-{dates[6][2]}"
 
     ### Create output file name
-    out_file = f"{st_date}_{end_date}_{worker_name.capitalize()}.ics"
+    out_file = f"/Outputs/{st_date}_{end_date}_{worker_name.capitalize()}.ics"
 
     # Save to calendar
     create_and_save_calendar(events, out_file)
