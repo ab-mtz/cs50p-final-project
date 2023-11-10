@@ -31,16 +31,10 @@ abvs = {
 utc = pytz.timezone("Europe/Berlin")
 event_description = "WORK"
 
-# NEXT::: Description and Video
 
 def main():
     in_file = validate_input()
-    # Check arguments
-    # if not check_arguments(sys.argv):
-    #     raise ValueError("Usage: project.py input_file.pdf")
-    # else:
-    #     in_file = sys.argv[0]
-
+  
     # Prompt the user to introduce the worker's name
     worker_name = input("Name of worker: ").strip()
     alert = input("How many minutes before do you want to be alerted? (For no alert type: 0)\nAlert: ")
