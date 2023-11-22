@@ -37,7 +37,7 @@ def main():
   
     # Prompt the user to introduce the worker's name
     worker_name = input("Name of worker: ").strip()
-    alert = input("How many minutes before do you want to be alerted? (For no alert type: 0)\nAlert: ")
+    alert = 30#input("How many minutes before do you want to be alerted? (For no alert type: 0)\nAlert: ")
     try:
         alert = int(alert)
         if alert > 120 or alert < 0:
