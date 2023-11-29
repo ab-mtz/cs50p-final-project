@@ -33,7 +33,7 @@ event_description = "WORK"
 
 
 def main():
-    in_file = validate_input()
+    pdf_file = validate_input()
   
     # Prompt the user to introduce the worker's name
     worker_name = input("Name of worker: ").strip()
@@ -46,7 +46,7 @@ def main():
         sys.exit("!-!-!- ERROR: The alert must be writen in positive numbers. Max 120 minutes.  -!-!-!")
     # Extract table from pdf
     try:
-        with pdfplumber.open(in_file) as pdf:
+        with pdfplumber.open(pdf_file) as pdf:
             page = pdf.pages[0]
             table = page.extract_table()
     except:
